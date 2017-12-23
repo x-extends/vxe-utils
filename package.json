@@ -1,0 +1,26 @@
+{
+  "name": "vxe-utils",
+  "version": "1.0.13",
+  "description": "vxe-utils一个轻量级函数库，提供了可使常见的 JavaScript 编程更为简单的 API",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xlz26296/vxe-utils.git"
+  },
+  "keywords": [
+    "vxe-utils",
+    "xextends",
+    "core",
+    "vxe",
+    "xejs"
+  ],
+  "author": "Xu Liangzhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xlz26296/vxe-utils/issues"
+  },
+  "homepage": "https://github.com/xlz26296/vxe-utils#readme"
+}
