@@ -7,10 +7,12 @@ function hash () {
 function parse (uri) {
   var result = {}
   var params = uri.split('?')[1] || ''
-  params.split('&').forEach(function (param) {
-    var [key, val] = param.split('=')
-    result[decodeURIComponent(key)] = val ? decodeURIComponent(val) : val
-  })
+  if (params) {
+    params.split('&').forEach(function (param) {
+      var [key, val] = param.split('=')
+      result[decodeURIComponent(key)] = val ? decodeURIComponent(val) : val
+    })
+  }
   return result
 }
 
