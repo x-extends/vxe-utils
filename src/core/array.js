@@ -203,8 +203,8 @@ export function map (obj, callback, context) {
     if (isArray(obj)) {
       return obj.map(callback, context)
     } else {
-      each(obj, function (val, index) {
-        result.push(callback.call(context, val, index, obj))
+      each(obj, function () {
+        result.push(callback.call(context, arguments))
       })
     }
   }

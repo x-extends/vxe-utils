@@ -333,6 +333,7 @@ export function indexOf (obj, val) {
 export function includes (obj, val) {
   return indexOf(obj, val) !== -1
 }
+export var contains = includes
 
 /**
   * 字符串转JSON
@@ -456,7 +457,7 @@ export function each (obj, callback, context) {
     }
     eachObj(obj, callback, context)
   }
-  return this
+  return obj
 }
 
 function cloneObj (obj) {
