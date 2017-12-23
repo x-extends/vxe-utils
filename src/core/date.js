@@ -9,45 +9,6 @@ export var now = Date.now || function () {
   return new Date().getTime()
 }
 
-var escapeMap = {
-  '&': '&amp;',
-  '<': '&lt;',
-  '>': '&gt;',
-  '"': '&quot;',
-  "'": '&#x27;',
-  '`': '&#x60;'
-}
-
-var unescapeMap = {}
-keys(escapeMap).forEach(key => {
-  unescapeMap[escapeMap[key]] = key
-})
-
-function formatEscaper (map) {
-  var replaceRegexp = new RegExp('(?:' + keys(map).join('|') + ')', 'g')
-  return function (str) {
-    return String(str).replace(replaceRegexp, match => {
-      return map[match]
-    })
-  }
-}
-
-/**
-  * 转义HTML字符串，替换&, <, >, ", ', `字符
-  *
-  * @param {String} str 字符串
-  * @return {String}
-  */
-export var escape = formatEscaper(escapeMap)
-
-/**
-  * 反转escape
-  *
-  * @param {String} str 字符串
-  * @return {String}
-  */
-export var unescape = formatEscaper(unescapeMap)
-
 /**
   * 字符串转为日期
   *
@@ -115,7 +76,7 @@ export function dateToString (date, format) {
     if (/(y+)/.test(result)) {
       result = result.replace(RegExp.$1, ('' + date.getFullYear()).substr(4 - RegExp.$1.length))
     }
-    Object.keys(resDate).forEach(key => {
+    keys(resDate).forEach(key => {
       if (new RegExp('(' + key + ')').test(result)) {
         let val = '' + resDate[key]
         result = result.replace(RegExp.$1, (key === 'q+' || key === 'E+') ? weeks[val] : (RegExp.$1.length === 1 ? val : ('00' + val).substr(val.length)))
