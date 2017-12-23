@@ -1,6 +1,6 @@
 {
   "name": "vxe-utils",
-  "version": "1.0.183",
+  "version": "1.0.19",
   "description": "vxe-utils是扩展Vue的函数库，提供一整套函数式编程功能",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,10 @@
     "vxe",
     "xejs"
   ],
-  "author": "Xu Liangzhan",
+  "author": {
+    "name": "Xu Liangzhan",
+    "email": "xu_liangzhan@163.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/xlz26296/vxe-utils/issues"
