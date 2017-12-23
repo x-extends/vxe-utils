@@ -1,7 +1,7 @@
 {
   "name": "vxe-utils",
-  "version": "1.0.18",
-  "description": "vxe-utils一个轻量级函数库，提供了可使常见的 JavaScript 编程更为简单的 API",
+  "version": "1.0.181",
+  "description": "vxe-utils是一个基于Vue的函数库，提供一整套函数式编程功能",
   "main": "index.js",
   "scripts": {
     "test": "make test"

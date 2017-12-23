@@ -1,7 +1,7 @@
 import { isDate, isString, keys } from './base'
 
 /**
- * 获取时间戳
+ * 返回时间戳
  *
  * @returns Number
  */

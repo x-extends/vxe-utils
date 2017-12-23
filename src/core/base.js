@@ -1,13 +1,17 @@
 import { stringToDate } from './date'
 
 /**
-  * 获取一个全局唯一标识
+  * 判断两个值是否是相同的值
   *
-  * @return {Number}
+  * @param {Object} v1 值
+  * @param {Object} v2 值
+  * @return {Boolean}
   */
-var __uniqueId = 0
-export function uniqueId () {
-  return ++__uniqueId
+export var is = Object.is || function (v1, v2) {
+  if (v1 === v2) {
+    return v1 !== 0 || 1 / v1 === 1 / v2
+  }
+  return false
 }
 
 /**
@@ -27,40 +31,6 @@ export var isNaN = window.isNaN
 export var isFinite = window.isFinite
 
 /**
-  * 判断两个值是否是相同的值
-  *
-  * @param {Object} v1 值
-  * @param {Object} v2 值
-  * @return {Boolean}
-  */
-export var is = Object.is || function (v1, v2) {
-  if (v1 === v2) {
-    return v1 !== 0 || 1 / v1 === 1 / v2
-  }
-  return false
-}
-
-/**
-  * 浅拷贝一个或者多个对象到目标对象中
-  *
-  * @param {Object} obj 目标对象
-  * @param {...Object}
-  * @return {Boolean}
-  */
-export var assign = Object.assign || function (target) {
-  if (target) {
-    for (var source, index = 1, len = arguments.length; index < len; index++) {
-      source = arguments[index]
-      Object.keys(arguments[index]).forEach(function (key) {
-        target[key] = source[key]
-      })
-    }
-  }
-  return target
-}
-export var extend = assign
-
-/**
   * 判断是否数组
   *
   * @param {Object} obj 对象
@@ -68,6 +38,16 @@ export var extend = assign
   */
 export var isArray = Array.isArray || function (obj) {
   return Object.prototype.toString.call(obj) === '[object Array]'
+}
+
+/**
+  * 判断是否小数
+  *
+  * @param {Number} num 数值
+  * @return {Boolean}
+  */
+export function isFloat (num) {
+  return !isNaN(num) && !isInteger(num)
 }
 
 /**
@@ -80,16 +60,6 @@ export var isInteger = Number.isInteger
 
 export function isFunction (obj) {
   return typeof obj === 'function'
-}
-
-/**
-  * 判断是否Object对象
-  *
-  * @param {Object} obj 对象
-  * @return {Boolean}
-  */
-export function isObject (obj) {
-  return typeof obj === 'object'
 }
 
 /**
@@ -130,6 +100,16 @@ export function isNumber (obj) {
   */
 export function isRegExp (obj) {
   return obj ? obj.constructor === RegExp : false
+}
+
+/**
+  * 判断是否Object对象
+  *
+  * @param {Object} obj 对象
+  * @return {Boolean}
+  */
+export function isObject (obj) {
+  return typeof obj === 'object'
 }
 
 /**
@@ -219,16 +199,6 @@ export function isArguments (obj) {
 }
 
 /**
-  * 判断是否小数
-  *
-  * @param {Number} num 数值
-  * @return {Boolean}
-  */
-export function isFloat (num) {
-  return !isNaN(num) && !isInteger(num)
-}
-
-/**
   * 判断是否Element对象
   *
   * @param {Number} num 数值
@@ -303,6 +273,16 @@ export function getType (obj) {
 }
 
 /**
+  * 获取一个全局唯一标识
+  *
+  * @return {Number}
+  */
+var __uniqueId = 0
+export function uniqueId () {
+  return ++__uniqueId
+}
+
+/**
   * 返回对象第一个索引值
   *
   * @param {Object} obj 对象
@@ -334,6 +314,26 @@ export function includes (obj, val) {
   return indexOf(obj, val) !== -1
 }
 export var contains = includes
+
+/**
+  * 浅拷贝一个或者多个对象到目标对象中
+  *
+  * @param {Object} obj 目标对象
+  * @param {...Object}
+  * @return {Boolean}
+  */
+export var assign = Object.assign || function (target) {
+  if (target) {
+    for (var source, index = 1, len = arguments.length; index < len; index++) {
+      source = arguments[index]
+      Object.keys(arguments[index]).forEach(function (key) {
+        target[key] = source[key]
+      })
+    }
+  }
+  return target
+}
+export var extend = assign
 
 /**
   * 字符串转JSON
