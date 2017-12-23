@@ -1,6 +1,6 @@
 {
   "name": "vxe-utils",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "vxe-utils一个轻量级函数库，提供了可使常见的 JavaScript 编程更为简单的 API",
   "main": "index.js",
   "scripts": {
