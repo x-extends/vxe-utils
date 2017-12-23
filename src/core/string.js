@@ -10,14 +10,14 @@ var escapeMap = {
 }
 
 var unescapeMap = {}
-keys(escapeMap).forEach(key => {
+keys(escapeMap).forEach(function (key) {
   unescapeMap[escapeMap[key]] = key
 })
 
 function formatEscaper (map) {
   var replaceRegexp = new RegExp('(?:' + keys(map).join('|') + ')', 'g')
   return function (str) {
-    return String(str || '').replace(replaceRegexp, match => {
+    return String(str || '').replace(replaceRegexp, function (match) {
       return map[match]
     })
   }

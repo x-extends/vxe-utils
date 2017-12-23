@@ -4,8 +4,8 @@
   */
 const $body = document.body || document.documentElement
 export function browse () {
-  let result = {};
-  ['webkit', 'khtml', 'moz', 'ms', 'o'].forEach((core) => {
+  var result = {};
+  ['webkit', 'khtml', 'moz', 'ms', 'o'].forEach(function (core) {
     result['-' + core] = !!$body[core + 'MatchesSelector']
   })
   return result

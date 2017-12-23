@@ -49,7 +49,7 @@ export var is = Object.is || function (v1, v2) {
   */
 export var assign = Object.assign || function (target) {
   if (target) {
-    for (let source, index = 1, len = arguments.length; index < len; index++) {
+    for (var source, index = 1, len = arguments.length; index < len; index++) {
       source = arguments[index]
       Object.keys(arguments[index]).forEach(function (key) {
         target[key] = source[key]
@@ -180,7 +180,7 @@ export function isTypeError (obj) {
   */
 export function isEmpty (obj) {
   if (obj === 0 || !isNumber(obj)) {
-    for (let key in obj) {
+    for (var key in obj) {
       return false
     }
     return true
@@ -275,8 +275,8 @@ export function isFormData (obj) {
   * @return {Boolean}
   */
 export function isLeapYear (date) {
-  let currentDate = date ? stringToDate(date) : new Date()
-  let year = currentDate.getFullYear()
+  var currentDate = date ? stringToDate(date) : new Date()
+  var year = currentDate.getFullYear()
   return (year % 4 === 0) && (year % 100 !== 0 || year % 400 === 0)
 }
 
@@ -314,7 +314,7 @@ export function indexOf (obj, val) {
     if (isString(obj) || isArray(obj)) {
       return obj.indexOf(val)
     }
-    for (let key in obj) {
+    for (var key in obj) {
       if (val === obj[key]) {
         return key
       }
@@ -390,7 +390,7 @@ export function values (obj) {
   if (Object.values) {
     return obj ? Object.values(obj) : []
   }
-  let result = []
+  var result = []
   keys(obj).forEach(function (key) {
     result.push(obj[key])
   })
@@ -407,7 +407,7 @@ export function entries (obj) {
   if (Object.entries) {
     return obj ? Object.entries(obj) : []
   }
-  let result = []
+  var result = []
   keys(obj).forEach(function (key) {
     result.push([key, obj[key]])
   })
@@ -431,12 +431,12 @@ export function first (obj) {
   * @return {Object}
   */
 export function last (obj) {
-  let list = values(obj)
+  var list = values(obj)
   return list[list.length - 1]
 }
 
 function eachObj (obj, callback, context) {
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach(function (key) {
     callback.call(context, obj[key], key, obj)
   })
 }
@@ -461,14 +461,14 @@ export function each (obj, callback, context) {
 
 function cloneObj (obj) {
   var result = {}
-  each(obj, (val, key) => {
+  each(obj, function (val, key) {
     result[key] = deepClone(val)
   })
   return result
 }
 
 function cloneArr (arr) {
-  return arr.map((val, index) => {
+  return arr.map(function (val, index) {
     return deepClone(val)
   })
 }
@@ -509,7 +509,7 @@ export function groupBy (obj, callback, context) {
     } else {
       callback = attr = null
     }
-    each(obj, (val, key) => {
+    each(obj, function (val, key) {
       groupKey = callback ? callback(val, key, obj) : (attr ? val[attr] : val)
       if (result[groupKey]) {
         result[groupKey].push(val)
@@ -532,7 +532,7 @@ export function groupBy (obj, callback, context) {
 export function mapObject (obj, callback, context) {
   var result = {}
   context = context || this
-  each(obj, (val, index) => {
+  each(obj, function (val, index) {
     result[index] = callback.call(context, val, index, obj)
   })
   return result

@@ -6,9 +6,9 @@ function hash () {
 
 function parse (uri) {
   var result = {}
-  let params = uri.split('?')[1] || ''
-  params.split('&').forEach(param => {
-    let [key, val] = param.split('=')
+  var params = uri.split('?')[1] || ''
+  params.split('&').forEach(function (param) {
+    var [key, val] = param.split('=')
     result[decodeURIComponent(key)] = val ? decodeURIComponent(val) : val
   })
   return result

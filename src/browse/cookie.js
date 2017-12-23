@@ -21,15 +21,15 @@ export function cookie (name, value, options) {
     inserts = [name]
   }
   if (inserts.length > 0) {
-    inserts.forEach(obj => {
-      let opts = assign({}, obj)
-      let values = []
+    inserts.forEach(function (obj) {
+      var opts = assign({}, obj)
+      var values = []
       if (opts.name) {
         values.push(encodeURIComponent(opts.name) + '=' + encodeURIComponent(JSON.stringify(opts.value)))
         if (opts.expires !== undefined) {
           opts.expires = new Date(Date.now() + parseFloat(opts.expires) * 86400000).toUTCString()
         }
-        ['expires', 'path', 'domain', 'secure'].forEach(key => {
+        ['expires', 'path', 'domain', 'secure'].forEach(function (key) {
           if (opts[key] !== undefined) {
             values.push(key + '=' + opts[key])
           }
@@ -39,7 +39,7 @@ export function cookie (name, value, options) {
     })
   } else {
     var result = {}
-    document.cookie.split('; ').forEach(val => {
+    document.cookie.split('; ').forEach(function (val) {
       var items = val.split('=')
       result[decodeURIComponent(items[0])] = decodeURIComponent(items[1])
     })

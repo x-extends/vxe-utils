@@ -10,7 +10,7 @@ import { isFunction, isArray, each, values } from './base'
 export function uniq (array) {
   var result = []
   if (isArray(array)) {
-    array.forEach(value => {
+    array.forEach(function (value) {
       if (!result.includes(value)) {
         result.push(value)
       }
@@ -27,7 +27,7 @@ export function uniq (array) {
   */
 export function union () {
   var result = []
-  for (let array of arguments) {
+  for (var array of arguments) {
     result = result.concat(array)
   }
   return uniq(result)
@@ -42,9 +42,9 @@ export function union () {
   */
 export function sort (arr, callback, context) {
   if (isArray(arr)) {
-    return arr.sort(callback ? isFunction(callback) ? callback.bind(context || this) : (v1, v2) => {
+    return arr.sort(callback ? isFunction(callback) ? callback.bind(context || this) : function (v1, v2) {
       return v1[callback] > v2[callback] ? 1 : -1
-    } : (v1, v2) => {
+    } : function (v1, v2) {
       return v1 > v2 ? 1 : -1
     })
   }
@@ -59,7 +59,7 @@ export function sort (arr, callback, context) {
   */
 export function shuffle (array) {
   var result = []
-  for (let list = values(array), len = list.length - 1; len >= 0; len--) {
+  for (var list = values(array), len = list.length - 1; len >= 0; len--) {
     var index = len > 0 ? random(0, len) : 0
     result.push(list[index])
     list.splice(index, 1)
@@ -75,7 +75,7 @@ export function shuffle (array) {
   * @return {Array}
   */
 export function sample (array, number) {
-  let result = shuffle(array)
+  var result = shuffle(array)
   if (arguments.length === 1) {
     return result[0]
   }
@@ -99,7 +99,7 @@ export function some (obj, callback, context) {
     if (isArray(obj)) {
       return obj.some(callback, context)
     } else {
-      for (let index in obj) {
+      for (var index in obj) {
         if (obj.hasOwnProperty(index)) {
           if (callback.call(context, obj[index], index, obj)) {
             return true
@@ -152,7 +152,7 @@ export function filter (obj, callback, context) {
       return obj.filter(callback, context)
     } else {
       var result = {}
-      each(obj, (val, key) => {
+      each(obj, function (val, key) {
         if (callback.call(context, val, key, obj)) {
           result[key] = val
         }
@@ -177,7 +177,7 @@ export function find (obj, callback, context) {
     if (isArray(obj)) {
       return obj.find(callback, context)
     } else {
-      for (let key in obj) {
+      for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
           if (callback.call(context, obj[key], key, obj)) {
             return obj[key]
@@ -203,7 +203,7 @@ export function map (obj, callback, context) {
     if (isArray(obj)) {
       return obj.map(callback, context)
     } else {
-      each(obj, (val, index) => {
+      each(obj, function (val, index) {
         result.push(callback.call(context, val, index, obj))
       })
     }

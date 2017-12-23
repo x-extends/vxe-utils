@@ -33,8 +33,8 @@ export function stringToDate (str, format) {
       {rules: [['HH', 2], ['H', 1]]},
       {rules: [['mm', 2], ['m', 1]]},
       {rules: [['ss', 2], ['s', 1]]},
-      {rules: [['SSS', 3], ['SS', 2], ['S', 1]]}].forEach(item => {
-        for (let arr, sIndex, index = 0, rules = item.rules, len = rules.length; index < len; index++) {
+      {rules: [['SSS', 3], ['SS', 2], ['S', 1]]}].forEach(function (item) {
+        for (var arr, sIndex, index = 0, rules = item.rules, len = rules.length; index < len; index++) {
           arr = rules[index]
           sIndex = format.indexOf(arr[0])
           if (sIndex > -1) {
@@ -76,9 +76,9 @@ export function dateToString (date, format) {
     if (/(y+)/.test(result)) {
       result = result.replace(RegExp.$1, ('' + date.getFullYear()).substr(4 - RegExp.$1.length))
     }
-    keys(resDate).forEach(key => {
+    keys(resDate).forEach(function (key) {
       if (new RegExp('(' + key + ')').test(result)) {
-        let val = '' + resDate[key]
+        var val = '' + resDate[key]
         result = result.replace(RegExp.$1, (key === 'q+' || key === 'E+') ? weeks[val] : (RegExp.$1.length === 1 ? val : ('00' + val).substr(val.length)))
       }
     })
@@ -180,7 +180,7 @@ export function getDateDiff (startDate, endDate, rules) {
     var item
     var diffTime = endTime - startTime
     var rule = rules && rules.length > 0 ? rules : [['yyyy', 31536000000], ['MM', 2592000000], ['dd', 86400000], ['HH', 3600000], ['mm', 60000], ['ss', 1000], ['S', 0]]
-    for (let index = 0, len = rule.length; index < len; index++) {
+    for (var index = 0, len = rule.length; index < len; index++) {
       item = rule[index]
       if (diffTime >= item[1]) {
         if (index === len - 1) {
