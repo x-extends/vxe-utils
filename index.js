@@ -4,43 +4,46 @@ import * as browse from './src/browse'
 function XEUtils () {}
 
 Object.assign(XEUtils, {
+
   context: window,
-  build (methods) {
+
+  /**
+   * 函数扩展
+   *
+   * @param {Object} methods 扩展函数对象
+   */
+  mixin (methods) {
     Object.keys(methods).forEach(name => {
       var fn = methods[name]
-      if (fn && (fn.set || fn.get)) {
-        Object.defineProperty(XEUtils, name, fn)
-      } else {
-        XEUtils[name] = core.isFunction(fn) ? function () {
-          let rest = fn.apply(XEUtils.context || window, arguments)
-          XEUtils.context = window
-          return rest
-        } : fn
-      }
+      XEUtils[name] = core.isFunction(fn) ? function () {
+        let rest = fn.apply(XEUtils.context || window, arguments)
+        XEUtils.context = window
+        return rest
+      } : fn
     })
   }
 })
 
-XEUtils.build(core)
-XEUtils.build(browse)
+XEUtils.mixin(core)
+XEUtils.mixin(browse)
 
 /**
- * Install plugin
+ * Install Vue plugin
  */
 function plugin (Vue) {
   Object.defineProperties(Vue.prototype, {
     $locat: {
-      get: function get () {
-        return XEUtils.locat
+      get () {
+        return XEUtils.locat()
       }
     },
     $browse: {
       get () {
-        return XEUtils.browse
+        return XEUtils.browse()
       }
     },
     $utils: {
-      get: function get () {
+      get () {
         XEUtils.context = this
         return XEUtils
       }

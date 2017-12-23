@@ -18,18 +18,16 @@ function parse (uri) {
  * 获取地址栏信息
   * @return Object
  */
-export let locat = {
-  get () {
-    return {
-      port: $locat.port,
-      href: $locat.href,
-      host: $locat.host,
-      hostname: $locat.hostname,
-      protocol: $locat.protocol,
-      origin: $locat.origin,
-      hash: hash(),
-      query: parse($locat.hash),
-      params: parse($locat.search)
-    }
+export function locat () {
+  return {
+    port: $locat.port,
+    href: $locat.href,
+    host: $locat.host,
+    hostname: $locat.hostname,
+    protocol: $locat.protocol,
+    origin: $locat.origin,
+    hash: hash(),
+    query: parse($locat.hash),
+    params: parse($locat.search)
   }
 }

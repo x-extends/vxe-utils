@@ -3,23 +3,27 @@ import { isFunction, isArray, each, values } from './base'
 
 /**
   * 数组去重
-  * @param Array array 数组
-  * @return Array
+  *
+  * @param {Array} array 数组
+  * @return {Array}
   */
 export function uniq (array) {
   var result = []
-  array.forEach(value => {
-    if (!result.includes(value)) {
-      result.push(value)
-    }
-  })
+  if (isArray(array)) {
+    array.forEach(value => {
+      if (!result.includes(value)) {
+        result.push(value)
+      }
+    })
+  }
   return result
 }
 
 /**
   * 将多个数的值返回唯一的并集数组
-  * @param Array ... 数组
-  * @return Array
+  *
+  * @param {...Array} 数组
+  * @return {Array}
   */
 export function union () {
   var result = []
@@ -31,9 +35,10 @@ export function union () {
 
 /**
   * 数组按属性值升序
-  * @param Array arr 数组
-  * @param Function/String callback 方法或属性
-  * @return Array
+  *
+  * @param {Array} arr 数组
+  * @param {Function, String} callback 方法或属性
+  * @return {Array}
   */
 export function sort (arr, callback, context) {
   if (isArray(arr)) {
@@ -48,8 +53,9 @@ export function sort (arr, callback, context) {
 
 /**
   * 将一个数组随机打乱，返回一个新的数组
-  * @param Array array 数组
-  * @return Array
+  *
+  * @param {Array} array 数组
+  * @return {Array}
   */
 export function shuffle (array) {
   var result = []
@@ -63,9 +69,10 @@ export function shuffle (array) {
 
 /**
   * 从一个数组中随机返回元素
-  * @param Array array 数组
-  * @param Number number 个数
-  * @return Array
+  *
+  * @param {Array} array 数组
+  * @param {Number} number 个数
+  * @return {Array}
   */
 export function sample (array, number) {
   let result = shuffle(array)
@@ -80,10 +87,11 @@ export function sample (array, number) {
 
 /**
   * 对象中的值中的每一项运行给定函数,如果函数对任一项返回true,则返回true,否则返回false
-  * @param Object obj 对象/数组
-  * @param Function callback(item, index, obj) 回调
-  * @param Object context 上下文(this默认指向当前vue组件)
-  * @return Boolean
+  *
+  * @param {Object} obj 对象/数组
+  * @param {Function} callback(item, index, obj) 回调
+  * @param {Object} context 上下文(this默认指向当前vue组件)
+  * @return {Boolean}
   */
 export function some (obj, callback, context) {
   if (obj) {
@@ -105,10 +113,11 @@ export function some (obj, callback, context) {
 
 /**
   * 对象中的值中的每一项运行给定函数,如果该函数对每一项都返回true,则返回true,否则返回false
-  * @param Object obj 对象/数组
-  * @param Function callback(item, index, obj) 回调
-  * @param Object context 上下文(this默认指向当前vue组件)
-  * @return Boolean
+  *
+  * @param {Object} obj 对象/数组
+  * @param {Function} callback(item, index, obj) 回调
+  * @param {Object} context 上下文(this默认指向当前vue组件)
+  * @return {Boolean}
   */
 export function every (obj, callback, context) {
   if (obj) {
@@ -130,10 +139,11 @@ export function every (obj, callback, context) {
 
 /**
   * 根据回调过滤数据
-  * @param Object obj 对象/数组
-  * @param Function callback(item, index, obj) 回调
-  * @param Object context 上下文(this默认指向当前vue组件)
-  * @return Object
+  *
+  * @param {Object} obj 对象/数组
+  * @param {Function} callback(item, index, obj) 回调
+  * @param {Object} context 上下文(this默认指向当前vue组件)
+  * @return {Object}
   */
 export function filter (obj, callback, context) {
   if (obj) {
@@ -155,10 +165,11 @@ export function filter (obj, callback, context) {
 
 /**
   * 查找匹配第一条数据
-  * @param Object obj 对象/数组
-  * @param Function callback(item, index, obj) 回调
-  * @param Object context 上下文(this默认指向当前vue组件)
-  * @return Object
+  *
+  * @param {Object} obj 对象/数组
+  * @param {Function} callback(item, index, obj) 回调
+  * @param {Object} context 上下文(this默认指向当前vue组件)
+  * @return {Object}
   */
 export function find (obj, callback, context) {
   if (obj) {
@@ -179,10 +190,11 @@ export function find (obj, callback, context) {
 
 /**
   * 指定方法后的返回值组成的新数组
-  * @param Object obj 对象/数组
-  * @param Function callback(item, index, obj) 回调
-  * @param Object context 上下文(this默认指向当前vue组件)
-  * @return Array
+  *
+  * @param {Object} obj 对象/数组
+  * @param {Function} callback(item, index, obj) 回调
+  * @param {Object} context 上下文(this默认指向当前vue组件)
+  * @return {Array}
   */
 export function map (obj, callback, context) {
   var result = []

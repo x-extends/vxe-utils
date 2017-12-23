@@ -1,10 +1,59 @@
-import { isDate, isString } from './base'
+import { isDate, isString, keys } from './base'
+
+/**
+ * 获取时间戳
+ *
+ * @returns Number
+ */
+export var now = Date.now || function () {
+  return new Date().getTime()
+}
+
+var escapeMap = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#x27;',
+  '`': '&#x60;'
+}
+
+var unescapeMap = {}
+keys(escapeMap).forEach(key => {
+  unescapeMap[escapeMap[key]] = key
+})
+
+function formatEscaper (map) {
+  var replaceRegexp = new RegExp('(?:' + keys(map).join('|') + ')', 'g')
+  return function (str) {
+    return String(str).replace(replaceRegexp, match => {
+      return map[match]
+    })
+  }
+}
+
+/**
+  * 转义HTML字符串，替换&, <, >, ", ', `字符
+  *
+  * @param {String} str 字符串
+  * @return {String}
+  */
+export var escape = formatEscaper(escapeMap)
+
+/**
+  * 反转escape
+  *
+  * @param {String} str 字符串
+  * @return {String}
+  */
+export var unescape = formatEscaper(unescapeMap)
 
 /**
   * 字符串转为日期
-  * @param String str 日期或数字
-  * @param String format 解析日期格式(yyyy年份、MM月份、dd天、HH小时、mm分钟、ss秒、SSS毫秒)
-  * @return String
+  *
+  * @param {String} str 日期或数字
+  * @param {String} format 解析日期格式(yyyy年份、MM月份、dd天、HH小时、mm分钟、ss秒、SSS毫秒)
+  * @return {String}
   */
 export function stringToDate (str, format) {
   if (str) {
@@ -43,9 +92,10 @@ export function stringToDate (str, format) {
 
 /**
   * 日期格式化为字符串
-  * @param Date date 日期或数字
-  * @param String format 输出日期格式(yyyy年份、MM月份、dd天、HH小时、mm分钟、ss秒、S毫秒、E星期几、q季度)
-  * @return String
+  *
+  * @param {Date} date 日期或数字
+  * @param {String} format 输出日期格式(yyyy年份、MM月份、dd天、HH小时、mm分钟、ss秒、S毫秒、E星期几、q季度)
+  * @return {String}
   */
 export function dateToString (date, format) {
   date = stringToDate(date)
@@ -78,10 +128,11 @@ export function dateToString (date, format) {
 
 /**
   * 返回前几个月或后几个月的日期
-  * @param Date date 日期或数字
-  * @param String mode 获取哪天(默认null)、月初(first)、月末(last)
-  * @param String month 月(默认0)、前几个月(-数值)、后几个月(数值)
-  * @return Date
+  *
+  * @param {Date} date 日期或数字
+  * @param {String} mode 获取哪天(默认null)、月初(first)、月末(last)
+  * @param {String} month 月(默认0)、前几个月(-数值)、后几个月(数值)
+  * @return {Date}
   */
 export function getWhatMonth (date, mode, month) {
   var currentDate = stringToDate(date)
@@ -112,10 +163,11 @@ export function getWhatMonth (date, mode, month) {
 
 /**
   * 返回前几周或后几周的星期几
-  * @param Date date 日期
-  * @param Number mode 星期天(默认0)、星期一(1)、星期二(2)、星期三(3)、星期四(4)、星期五(5)、星期六(6)
-  * @param String week 周(默认0)、前几周(-数值)、后几周(数值)
-  * @return Date
+  *
+  * @param {Date} date 日期
+  * @param {Number} mode 星期天(默认0)、星期一(1)、星期二(2)、星期三(3)、星期四(4)、星期五(5)、星期六(6)
+  * @param {String} week 周(默认0)、前几周(-数值)、后几周(数值)
+  * @return {Date}
   */
 export function getWhatWeek (date, mode, week) {
   var customDay = Number(/^[0-7]$/.test(mode) ? mode : 0)
@@ -131,9 +183,10 @@ export function getWhatWeek (date, mode, week) {
 
 /**
   * 返回前几天或后几天的日期
-  * @param Date date 日期或数字
-  * @param String day 天(默认0)、前几天(-数值)、后几天(数值)
-  * @return Date
+  *
+  * @param {Date} date 日期或数字
+  * @param {String} day 天(默认0)、前几天(-数值)、后几天(数值)
+  * @return {Date}
   */
 export function getWhatDay (date, day) {
   return new Date(stringToDate(date).getTime() + (day && !isNaN(day) ? day * 86400000 : 0))
@@ -141,9 +194,10 @@ export function getWhatDay (date, day) {
 
 /**
   * 返回前几个月或后几个月的当月天数
-  * @param Date date 日期或数字
-  * @param String month 月(默认0)、前几个月(-数值)、后几个月(数值)
-  * @return Number
+  *
+  * @param {Date} date 日期或数字
+  * @param {String} month 月(默认0)、前几个月(-数值)、后几个月(数值)
+  * @return {Number}
   */
 export function getDaysOfMonth (date, month) {
   return Math.floor((getWhatMonth(date, 'last', month).getTime() - getWhatMonth(date, 'first', month).getTime()) / 86400000) + 1
@@ -151,10 +205,11 @@ export function getDaysOfMonth (date, month) {
 
 /**
   * 返回两个日期之间差距
-  * @param Date startDate 开始日期
-  * @param Date endDate 结束日期或当期日期
-  * @param Date rule 自定义计算规则
-  * @return Object
+  *
+  * @param {Date} startDate 开始日期
+  * @param {Date} endDate 结束日期或当期日期
+  * @param {Date} rule 自定义计算规则
+  * @return {Object}
   */
 export function getDateDiff (startDate, endDate, rules) {
   var result = {}
