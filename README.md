@@ -258,7 +258,7 @@ this.$utils.last([11, 22]) // 22
 ```shell
 let result = []
 this.$utils.each({a: 11, b: 22}, (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   if (key === 'b') {
     result.push(item)
   }
@@ -268,7 +268,7 @@ this.$utils.each({a: 11, b: 22}, (item, key) => {
 ```shell
 let result1 = this.$utils.groupBy([{type: 'a'}, {type: 'b'}]], 'type') // {a: [{a: 'a'}], b: [{b: 'b'}]}
 let result2 = this.$utils.groupBy([{type: 'a'}, {type: 'b'}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.type
 }) // {a: [{a: 'a'}], b: [{b: 'b'}]}
 ```
@@ -276,7 +276,7 @@ let result2 = this.$utils.groupBy([{type: 'a'}, {type: 'b'}]], (item, key) => {
 ```shell
 let result = []
 this.$utils.mapObject([{type: 'a'}, {type: 'b'}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.type
 }) // {a: {type: 'a', b: {type: 'b'}}}
 ```
@@ -306,7 +306,7 @@ this.$utils.union([11, 22], [33, 22], [44, 11]) // [11, 22, 33, 44]
 ```shell
 this.$utils.sort([{a: 9}, {a: 4}, {a: 5}], 'a') // [{a: 4}, {a: 5}, {a: 9}]
 this.$utils.sort([{a: 9}, {a: 4}, {a: 5}], (v1, v2) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return v1.a > v2.a ? 1 : -1
 }) // [{a: 4}, {a: 5}, {a: 9}]
 ```
@@ -321,47 +321,47 @@ this.$utils.sample([11, 22, 33, 44, 55], 3) // [22, 33, 55]
 #### some ( obj, iteratee, context ) 对象中的值中的每一项运行给定函数,如果函数对任一项返回true,则返回true,否则返回false
 ```shell
 this.$utils.some([{a: 11}, {a: 22}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a === 55
 }) // false
 this.$utils.some([{a: 11}, {a: 22}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a === 11
 }) // true
 ```
 #### every ( obj, iteratee, context ) 对象中的值中的每一项运行给定函数,如果该函数对每一项都返回true,则返回true,否则返回false
 ```shell
 this.$utils.every([{a: 11}, {a: 22}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a === 11
 }) // false
 this.$utils.every([{a: 11}, {a: 22}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a === 11 || item.a === 22
 }) // true
 ```
 #### filter ( obj, iteratee, context ) 根据回调过滤数据
 ```shell
 this.$utils.filter([{a: 11}, {a: 22}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a > 11
 }) // [{a: 22}]
 ```
 #### find ( obj, iteratee, context ) 查找匹配第一条数据
 ```shell
 this.$utils.find([{a: 11}, {a: 22}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a === 55
 }) // null
 this.$utils.find([{a: 11}, {a: 22}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a === 22
 }) // {a: 22}
 ```
 #### map ( obj, iteratee, context ) 指定方法后的返回值组成的新数组
 ```shell
 this.$utils.map([{a: 11}, {a: 22}]], (item, key) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a
 }) // [11, 22]
 ```
@@ -442,7 +442,7 @@ this.$utils.random(10, 100) // 10 ~ 100
 this.$utils.min([22, 66, 77, 11]) // 11
 this.$utils.min([{a: 11}, {a: 44}], 'a') // 11
 this.$utils.min([{a: 11}, {a: 44}], (item) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a
 }) // {a: 11}
 ```
@@ -451,7 +451,7 @@ this.$utils.min([{a: 11}, {a: 44}], (item) => {
 this.$utils.max([22, 66, 77, 11]) // 77
 this.$utils.max([{a: 11}, {a: 44}], 'a') // 44
 this.$utils.max([{a: 11}, {a: 44}], (item) => {
-  // this.* 指向当前vue实例
+  // // this 指向当前vue实例
   return item.a
 }) // {a: 44}
 ```
