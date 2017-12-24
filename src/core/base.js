@@ -275,25 +275,74 @@ export function uniqueId () {
 }
 
 /**
+  * 返回对象的长度
+  *
+  * @param {Object} obj 对象
+  * @return {Number}
+  */
+export function size (obj) {
+  var len = 0
+  if (isString(obj) || isArray(obj)) {
+    return obj.length
+  }
+  each(obj, function () {
+    len++
+  })
+  return len
+}
+
+function createIndexOf (callback) {
+  return function (obj, val) {
+    if (obj) {
+      if (isString(obj) || isArray(obj)) {
+        return callback(obj, val)
+      }
+      for (var key in obj) {
+        if (val === obj[key]) {
+          return key
+        }
+      }
+    }
+    return -1
+  }
+}
+
+/**
   * 返回对象第一个索引值
   *
   * @param {Object} obj 对象
   * @param {Object} val 值
   * @return {Number}
   */
-export function indexOf (obj, val) {
-  if (obj) {
-    if (isString(obj) || isArray(obj)) {
-      return obj.indexOf(val)
+export var indexOf = createIndexOf(function (obj, val) {
+  if (obj.indexOf) {
+    return obj.indexOf(val)
+  }
+  for (var index = 0, len = obj.length; index < len; index++) {
+    if (val === obj[index]) {
+      return index
     }
-    for (var key in obj) {
-      if (val === obj[key]) {
-        return key
-      }
+  }
+})
+
+/**
+  * 从最后开始的索引值,返回对象第一个索引值
+  *
+  * @param {Object} array 对象
+  * @param {Object} val 值
+  * @return {Number}
+  */
+export var lastIndexOf = createIndexOf(function (obj, val) {
+  if (obj.lastIndexOf) {
+    return obj.lastIndexOf(val)
+  }
+  for (var len = obj.length - 1; len >= 0; len--) {
+    if (val === obj[len]) {
+      return len
     }
   }
   return -1
-}
+})
 
 /**
   * 判断对象是否包含该值,成功返回true否则false
@@ -318,7 +367,7 @@ export var assign = Object.assign || function (target) {
   if (target) {
     for (var source, index = 1, len = arguments.length; index < len; index++) {
       source = arguments[index]
-      Object.keys(arguments[index]).forEach(function (key) {
+      keys(arguments[index]).forEach(function (key) {
         target[key] = source[key]
       })
     }
@@ -370,7 +419,16 @@ export function jsonToString (obj) {
   * @return {Array}
   */
 export function keys (obj) {
-  return obj ? Object.keys(obj) : []
+  var result = []
+  if (obj) {
+    if (Object.keys) {
+      return Object.keys(obj)
+    }
+    eachObj(obj, function (val, key) {
+      result.push(key)
+    })
+  }
+  return result
 }
 
 /**
@@ -429,9 +487,11 @@ export function last (obj) {
 }
 
 function eachObj (obj, iteratee, context) {
-  Object.keys(obj).forEach(function (key) {
-    iteratee.call(context, obj[key], key, obj)
-  })
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      iteratee.call(context, obj[key], key, obj)
+    }
+  }
 }
 
 /**

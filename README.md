@@ -184,15 +184,26 @@ this.$utils.getType([]) // 'array'
 this.$utils.getType({}) // 'object'
 this.$utils.getType(function(){}) // 'function'
 ```
-#### uniqueId () 获取一个全局唯一标识
+#### uniqueId (  ) 获取一个全局唯一标识
 ```shell
 this.$utils.uniqueId() // 1
 this.$utils.uniqueId() // 2
+```
+#### size ( obj ) 返回对象的长度
+```shell
+this.$utils.size('123') // 3
+this.$utils.size([1, 3]) // 2
+this.$utils.size({a: 2, b: 5}) // 2
 ```
 #### indexOf (obj, val) 返回对象第一个索引值
 ```shell
 this.$utils.indexOf([11], 22) // -1
 this.$utils.indexOf([11, 22], 22) // 1
+```
+#### lastIndexOf (obj, val) 从最后开始的索引值,返回对象第一个索引值
+```shell
+this.$utils.lastIndexOf([11], 22) // -1
+this.$utils.lastIndexOf([11, 22], 22) // 1
 ```
 #### includes (obj, val) 判断对象是否包含该值,成功返回true否则false
 ```shell
