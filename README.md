@@ -25,7 +25,7 @@ Vue.use(XEUtils)
 let date = this.$utils.stringToDate('2017-12-20', 'yyyy-MM-dd')
 ```
 ## API :
-### ./core/base :
+### *./core/base*
 #### isNaN (val) 判断是否非数值
 ```shell
 this.$utils.isNaN(undefined) // true
@@ -282,7 +282,7 @@ if (v1.b === v3.b) {
 }
 ```
 
-### ./core/array
+### *./core/array*
 #### uniq ( array ) 数组去重
 ```shell
 this.$utils.uniq([11, 22, 33, 33, 22, 55]) // [11, 22, 33, 55]
@@ -355,7 +355,7 @@ this.$utils.map([{a: 11}, {a: 22}]], (item, key) => {
 }) // [11, 22]
 ```
 
-### ./core/date
+### *./core/date*
 #### now ( ) 返回时间戳
 ```shell
 this.$utils.now() // 1514096716800
@@ -419,7 +419,7 @@ let dateDiff = this.$utils.getDateDiff('2017-12-20 10:10:30', '2017-12-21 10:15:
 let content = `${dateDiff.mm}分${dateDiff.ss}秒` // '4分30秒'
 ```
 
-### ./core/number
+### *./core/number*
 #### random ( min, max ) 获取一个指定范围内随机数
 ```shell
 this.$utils.random() // 0 ~ 9
@@ -437,7 +437,7 @@ this.$utils.max([22, 66, 77, 11]) // 77
 this.$utils.max([{a: 11}, {a: 44}], 'a') // 44
 ```
 
-### ./core/string
+### *./core/string*
 #### escape ( str ) 转义HTML字符串，替换&, <, >, ", ', `字符
 ```shell
 this.$utils.escape('<a>link</a>') // '&lt;a&gt;link&lt;/a&gt;'
@@ -447,19 +447,19 @@ this.$utils.escape('<a>link</a>') // '&lt;a&gt;link&lt;/a&gt;'
 this.$utils.escape('&lt;a&gt;link&lt;/a&gt;') // '<a>link</a>'
 ```
 
-### ./browse/type
+### *./browse/type*
 #### browse ( ) 获取浏览器内核
 ```shell
 this.$utils.browse() // {-khtml: false, -moz: false, -ms: fasle, -o: false, -webkit: true}
 ```
 
-### ./browse/locat
+### *./browse/locat*
 #### locat ( ) 获取地址栏信息
 ```shell
 this.$utils.locat() // {hash: '', host: '', hostname: '', href: '', protocol: '', port: '', origin: '', query: {...}, params: {...}, ...}
 ```
 
-### ./browse/cookie
+### *./browse/cookie*
 #### cookie ( ) Cookie操作函数
 ```shell
 this.$utils.cookie('c1', 'v111') // 添加/修改
