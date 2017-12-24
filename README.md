@@ -6,7 +6,7 @@
 npm install vxe-utils --save
 ```
 
-## 按需引入
+### 按需引入
 ``` shell
 import { dateToString, stringToDate } from 'vxe-utils/core'
 
@@ -14,7 +14,7 @@ let dateStr = dateToString(new Date()
 let date = stringToDate(dateStr)
 ```
 
-## 在Vue模块化的打包环境中通过 Vue.use() 来全局安装
+### 在Vue模块化的打包环境中通过 Vue.use() 来全局安装
 ``` shell
 import Vue from 'vue'
 import XEUtils from 'vxe-utils'
