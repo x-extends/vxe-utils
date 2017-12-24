@@ -91,11 +91,11 @@ export function dateToString (date, format) {
   * 返回前几个月或后几个月的日期
   *
   * @param {Date} date 日期或数字
-  * @param {String} mode 获取哪天(默认null)、月初(first)、月末(last)
   * @param {String} month 月(默认0)、前几个月(-数值)、后几个月(数值)
+  * @param {String} mode 获取哪天(默认null)、月初(first)、月末(last)
   * @return {Date}
   */
-export function getWhatMonth (date, mode, month) {
+export function getWhatMonth (date, month, mode) {
   var currentDate = stringToDate(date)
   var number = month && !isNaN(month) ? month : 0
   var oldH = currentDate.getHours()
@@ -110,10 +110,10 @@ export function getWhatMonth (date, mode, month) {
     }
     return new Date(oldY + Math.floor(oldM / 12), oldM % 12, 1, oldH, oldm, olds, oldS)
   } else if (mode === 'last') {
-    return new Date(getWhatMonth(currentDate, 'first', number + 1).getTime() - 86400000)
+    return new Date(getWhatMonth(currentDate, number + 1, 'first').getTime() - 86400000)
   }
   var oldD = currentDate.getDate()
-  var dateTime = getWhatMonth(currentDate, 'first', number)
+  var dateTime = getWhatMonth(currentDate, number, 'first')
   var newM = dateTime.getMonth()
   dateTime.setDate(oldD)
   while (newM < dateTime.getMonth()) {
@@ -126,11 +126,11 @@ export function getWhatMonth (date, mode, month) {
   * 返回前几周或后几周的星期几
   *
   * @param {Date} date 日期
-  * @param {Number} mode 星期天(默认0)、星期一(1)、星期二(2)、星期三(3)、星期四(4)、星期五(5)、星期六(6)
   * @param {String} week 周(默认0)、前几周(-数值)、后几周(数值)
+  * @param {Number} mode 星期天(默认0)、星期一(1)、星期二(2)、星期三(3)、星期四(4)、星期五(5)、星期六(6)
   * @return {Date}
   */
-export function getWhatWeek (date, mode, week) {
+export function getWhatWeek (date, week, mode) {
   var customDay = Number(/^[0-7]$/.test(mode) ? mode : 0)
   var currentDate = stringToDate(date)
   var currentDay = currentDate.getDay()
@@ -154,14 +154,14 @@ export function getWhatDay (date, day) {
 }
 
 /**
-  * 返回前几个月或后几个月的当月天数
+  * 返回当前日期月份的天数
   *
   * @param {Date} date 日期或数字
   * @param {String} month 月(默认0)、前几个月(-数值)、后几个月(数值)
   * @return {Number}
   */
 export function getDaysOfMonth (date, month) {
-  return Math.floor((getWhatMonth(date, 'last', month).getTime() - getWhatMonth(date, 'first', month).getTime()) / 86400000) + 1
+  return Math.floor((getWhatMonth(date, month, 'last').getTime() - getWhatMonth(date, month, 'first').getTime()) / 86400000) + 1
 }
 
 /**

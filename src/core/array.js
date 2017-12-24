@@ -68,7 +68,7 @@ export function shuffle (array) {
 }
 
 /**
-  * 从一个数组中随机返回元素
+  * 从一个数组中随机返回几个元素
   *
   * @param {Array} array 数组
   * @param {Number} number 个数

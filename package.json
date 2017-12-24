@@ -1,6 +1,6 @@
 {
   "name": "vxe-utils",
-  "version": "1.0.19",
+  "version": "1.0.191",
   "description": "vxe-utils是扩展Vue的函数库，提供一整套函数式编程功能",
   "main": "index.js",
   "scripts": {

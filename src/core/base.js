@@ -1,31 +1,17 @@
 import { stringToDate } from './date'
 
 /**
-  * 判断两个值是否是相同的值
-  *
-  * @param {Object} v1 值
-  * @param {Object} v2 值
-  * @return {Boolean}
-  */
-export var is = Object.is || function (v1, v2) {
-  if (v1 === v2) {
-    return v1 !== 0 || 1 / v1 === 1 / v2
-  }
-  return false
-}
-
-/**
   * 判断是否非数值
   *
-  * @param {String, Number} number 数值
+  * @param {String, Number} val 数值
   * @return {Boolean}
   */
 export var isNaN = window.isNaN
 
 /**
-  * 判断其数值是否是无穷大
+  * 判断是否为有限数值
   *
-  * @param {Number} number 数值
+  * @param {Number} val 数值
   * @return {Boolean}
   */
 export var isFinite = window.isFinite
@@ -33,21 +19,21 @@ export var isFinite = window.isFinite
 /**
   * 判断是否数组
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export var isArray = Array.isArray || function (obj) {
-  return Object.prototype.toString.call(obj) === '[object Array]'
+export var isArray = Array.isArray || function (val) {
+  return Object.prototype.toString.call(val) === '[object Array]'
 }
 
 /**
   * 判断是否小数
   *
-  * @param {Number} num 数值
+  * @param {Number} val 数值
   * @return {Boolean}
   */
-export function isFloat (num) {
-  return !isNaN(num) && !isInteger(num)
+export function isFloat (val) {
+  return val !== null && !isNaN(val) && !isInteger(val)
 }
 
 /**
@@ -58,109 +44,115 @@ export function isFloat (num) {
   */
 export var isInteger = Number.isInteger
 
-export function isFunction (obj) {
-  return typeof obj === 'function'
+/**
+  * 判断是否方法
+  *
+  * @param {Object} val 对象
+  * @return {Boolean}
+  */
+export function isFunction (val) {
+  return typeof val === 'function'
 }
 
 /**
   * 判断是否Boolean对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isBoolean (obj) {
-  return typeof obj === 'boolean'
+export function isBoolean (val) {
+  return typeof val === 'boolean'
 }
 
 /**
   * 判断是否String对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isString (obj) {
-  return typeof obj === 'string'
+export function isString (val) {
+  return typeof val === 'string'
 }
 
 /**
   * 判断是否Number对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isNumber (obj) {
-  return typeof obj === 'number'
+export function isNumber (val) {
+  return typeof val === 'number'
 }
 
 /**
   * 判断是否RegExp对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isRegExp (obj) {
-  return obj ? obj.constructor === RegExp : false
+export function isRegExp (val) {
+  return val ? val.constructor === RegExp : false
 }
 
 /**
   * 判断是否Object对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isObject (obj) {
-  return typeof obj === 'object'
+export function isObject (val) {
+  return typeof val === 'object'
 }
 
 /**
   * 判断是否对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isPlainObject (obj) {
-  return obj ? obj.constructor === Object : false
+export function isPlainObject (val) {
+  return val ? val.constructor === Object : false
 }
 
 /**
   * 判断是否Date对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isDate (obj) {
-  return obj ? obj.constructor === Date : false
+export function isDate (val) {
+  return val ? val.constructor === Date : false
 }
 
 /**
   * 判断是否Error对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isError (obj) {
-  return obj ? obj.constructor === Error : false
+export function isError (val) {
+  return val ? val.constructor === Error : false
 }
 
 /**
   * 判断是否TypeError对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isTypeError (obj) {
-  return obj ? obj.constructor === TypeError : false
+export function isTypeError (val) {
+  return val ? val.constructor === TypeError : false
 }
 
 /**
   * 判断是否为空,包括空对象、空数值、空字符串
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isEmpty (obj) {
-  if (obj === 0 || !isNumber(obj)) {
-    for (var key in obj) {
+export function isEmpty (val) {
+  if (val === 0 || !isNumber(val)) {
+    for (var key in val) {
       return false
     }
     return true
@@ -171,31 +163,31 @@ export function isEmpty (obj) {
 /**
   * 判断是否为Null
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isNull (obj) {
-  return obj === null
+export function isNull (val) {
+  return val === null
 }
 
 /**
   * 判断是否Symbol对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isSymbol (obj) {
-  return typeof Symbol !== 'undefined' && Symbol.isSymbol ? Symbol.isSymbol(obj) : (typeof obj === 'symbol')
+export function isSymbol (val) {
+  return typeof Symbol !== 'undefined' && Symbol.isSymbol ? Symbol.isSymbol(val) : (typeof val === 'symbol')
 }
 
 /**
   * 判断是否Arguments对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isArguments (obj) {
-  return String(obj) === '[object Arguments]'
+export function isArguments (val) {
+  return String(val) === '[object Arguments]'
 }
 
 /**
@@ -204,38 +196,38 @@ export function isArguments (obj) {
   * @param {Number} num 数值
   * @return {Boolean}
   */
-export function isElement (obj) {
-  return obj && isString(obj.nodeName) && isNumber(obj.nodeName)
+export function isElement (val) {
+  return val && isString(val.nodeName) && isNumber(val.nodeType)
 }
 
 /**
   * 判断是否Document对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isDocument (obj) {
-  return obj && obj.nodeType === 9
+export function isDocument (val) {
+  return val && val.nodeType === 9
 }
 
 /**
   * 判断是否Window对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isWindow (obj) {
-  return obj && obj === obj.window
+export function isWindow (val) {
+  return val && val === val.window
 }
 
 /**
   * 判断是否FormData对象
   *
-  * @param {Object} obj 对象
+  * @param {Object} val 对象
   * @return {Boolean}
   */
-export function isFormData (obj) {
-  return typeof FormData !== 'undefined' && obj instanceof FormData
+export function isFormData (val) {
+  return typeof FormData !== 'undefined' && val instanceof FormData
 }
 
 /**
@@ -460,35 +452,6 @@ export function each (obj, callback, context) {
   return obj
 }
 
-function cloneObj (obj) {
-  var result = {}
-  each(obj, function (val, key) {
-    result[key] = deepClone(val)
-  })
-  return result
-}
-
-function cloneArr (arr) {
-  return arr.map(function (val, index) {
-    return deepClone(val)
-  })
-}
-
-function deepClone (obj) {
-  return isPlainObject(obj) ? cloneObj(obj) : isArray(obj) ? cloneArr(obj) : obj
-}
-
-/**
-  * 浅拷贝/深拷贝
-  *
-  * @param {Object} obj 对象/数组
-  * @param {Boolean} deep 是否深拷贝
-  * @return {Object}
-  */
-export function clone (obj, deep) {
-  return deep ? deepClone(obj) : assign(isPlainObject(obj) ? {} : [], obj)
-}
-
 /**
   * 集合分组,默认使用键值分组,如果有callback则使用结果进行分组
   *
@@ -537,4 +500,33 @@ export function mapObject (obj, callback, context) {
     result[index] = callback.call(context, val, index, obj)
   })
   return result
+}
+
+function cloneObj (obj) {
+  var result = {}
+  each(obj, function (val, key) {
+    result[key] = deepClone(val)
+  })
+  return result
+}
+
+function cloneArr (arr) {
+  return arr.map(function (val, index) {
+    return deepClone(val)
+  })
+}
+
+function deepClone (obj) {
+  return isPlainObject(obj) ? cloneObj(obj) : isArray(obj) ? cloneArr(obj) : obj
+}
+
+/**
+  * 浅拷贝/深拷贝
+  *
+  * @param {Object} obj 对象/数组
+  * @param {Boolean} deep 是否深拷贝
+  * @return {Object}
+  */
+export function clone (obj, deep) {
+  return deep ? deepClone(obj) : assign(isPlainObject(obj) ? {} : [], obj)
 }
