@@ -428,9 +428,9 @@ export function last (obj) {
   return list[list.length - 1]
 }
 
-function eachObj (obj, callback, context) {
+function eachObj (obj, iteratee, context) {
   Object.keys(obj).forEach(function (key) {
-    callback.call(context, obj[key], key, obj)
+    iteratee.call(context, obj[key], key, obj)
   })
 }
 
@@ -438,43 +438,43 @@ function eachObj (obj, callback, context) {
   * 迭代器
   *
   * @param {Object} obj 对象/数组
-  * @param {Function} callback(item, index, obj) 回调
+  * @param {Function} iteratee(item, index, obj) 回调
   * @param {Object} context 上下文(this默认指向当前vue组件)
   * @return {Object}
   */
-export function each (obj, callback, context) {
+export function each (obj, iteratee, context) {
   if (obj) {
     if (isArray(obj)) {
-      return obj.forEach(callback, context)
+      return obj.forEach(iteratee, context)
     }
-    eachObj(obj, callback, context)
+    eachObj(obj, iteratee, context)
   }
   return obj
 }
 
 /**
-  * 集合分组,默认使用键值分组,如果有callback则使用结果进行分组
+  * 集合分组,默认使用键值分组,如果有iteratee则使用结果进行分组
   *
   * @param {Array} obj 对象
-  * @param {Function} callback 回调/对象属性
+  * @param {Function} iteratee 回调/对象属性
   * @param {Object} context 上下文(this默认指向当前vue组件)
   * @return {Object}
   */
-export function groupBy (obj, callback, context) {
+export function groupBy (obj, iteratee, context) {
   var groupKey, attr
   var result = {}
   if (obj) {
     context = context || this
-    if (isString(callback)) {
-      attr = callback
-      callback = null
-    } else if (isFunction(callback)) {
-      callback = callback.bind(context)
+    if (isString(iteratee)) {
+      attr = iteratee
+      iteratee = null
+    } else if (isFunction(iteratee)) {
+      iteratee = iteratee.bind(context)
     } else {
-      callback = attr = null
+      iteratee = attr = null
     }
     each(obj, function (val, key) {
-      groupKey = callback ? callback(val, key, obj) : (attr ? val[attr] : val)
+      groupKey = iteratee ? iteratee(val, key, obj) : (attr ? val[attr] : val)
       if (result[groupKey]) {
         result[groupKey].push(val)
       } else {
@@ -489,15 +489,15 @@ export function groupBy (obj, callback, context) {
   * 指定方法后的返回值组成的新对象
   *
   * @param {Object} obj 对象/数组
-  * @param {Function} callback(item, index, obj) 回调
+  * @param {Function} iteratee(item, index, obj) 回调
   * @param {Object} context 上下文(this默认指向当前vue组件)
   * @return {Object}
   */
-export function mapObject (obj, callback, context) {
+export function mapObject (obj, iteratee, context) {
   var result = {}
   context = context || this
   each(obj, function (val, index) {
-    result[index] = callback.call(context, val, index, obj)
+    result[index] = iteratee.call(context, val, index, obj)
   })
   return result
 }

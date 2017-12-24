@@ -243,7 +243,7 @@ this.$utils.first([11, 22]) // 11
 this.$utils.last({a: 11, b: 22}) // 22
 this.$utils.last([11, 22]) // 22
 ```
-#### each ( obj, callback, context ) 迭代器
+#### each ( obj, iteratee, context ) 迭代器
 ```shell
 let result = []
 this.$utils.each({a: 11, b: 22}, (item, key) => {
@@ -253,7 +253,7 @@ this.$utils.each({a: 11, b: 22}, (item, key) => {
   }
 }) // [22]
 ```
-#### groupBy ( obj, callback, context ) 集合分组,默认使用键值分组,如果有callback则使用结果进行分组
+#### groupBy ( obj, iteratee, context ) 集合分组,默认使用键值分组,如果有iteratee则使用结果进行分组
 ```shell
 let result1 = this.$utils.groupBy([{type: 'a'}, {type: 'b'}]], 'type') // {a: [{a: 'a'}], b: [{b: 'b'}]}
 let result2 = this.$utils.groupBy([{type: 'a'}, {type: 'b'}]], (item, key) => {
@@ -261,7 +261,7 @@ let result2 = this.$utils.groupBy([{type: 'a'}, {type: 'b'}]], (item, key) => {
   return item.type
 }) // {a: [{a: 'a'}], b: [{b: 'b'}]}
 ```
-#### mapObject ( obj, callback, context ) 指定方法后的返回值组成的新对象
+#### mapObject ( obj, iteratee, context ) 指定方法后的返回值组成的新对象
 ```shell
 let result = []
 this.$utils.mapObject([{type: 'a'}, {type: 'b'}]], (item, key) => {
@@ -291,7 +291,7 @@ this.$utils.uniq([11, 22, 33, 33, 22, 55]) // [11, 22, 33, 55]
 ```shell
 this.$utils.union([11, 22], [33, 22], [44, 11]) // [11, 22, 33, 44]
 ```
-#### sort ( arr, callback, context ) 数组按属性值升序
+#### sort ( arr, iteratee, context ) 数组按属性值升序
 ```shell
 this.$utils.sort([{a: 9}, {a: 4}, {a: 5}], 'a') // [{a: 4}, {a: 5}, {a: 9}]
 this.$utils.sort([{a: 9}, {a: 4}, {a: 5}], (v1, v2) => {
@@ -307,7 +307,7 @@ this.$utils.shuffle([11, 22, 33, 44, 55]) // [22, 33, 55, 11, 44]
 ```shell
 this.$utils.sample([11, 22, 33, 44, 55], 3) // [22, 33, 55]
 ```
-#### some ( obj, callback, context ) 对象中的值中的每一项运行给定函数,如果函数对任一项返回true,则返回true,否则返回false
+#### some ( obj, iteratee, context ) 对象中的值中的每一项运行给定函数,如果函数对任一项返回true,则返回true,否则返回false
 ```shell
 this.$utils.some([{a: 11}, {a: 22}]], (item, key) => {
   // this.* 指向当前vue实例
@@ -318,7 +318,7 @@ this.$utils.some([{a: 11}, {a: 22}]], (item, key) => {
   return item.a === 11
 }) // true
 ```
-#### every ( obj, callback, context ) 对象中的值中的每一项运行给定函数,如果该函数对每一项都返回true,则返回true,否则返回false
+#### every ( obj, iteratee, context ) 对象中的值中的每一项运行给定函数,如果该函数对每一项都返回true,则返回true,否则返回false
 ```shell
 this.$utils.every([{a: 11}, {a: 22}]], (item, key) => {
   // this.* 指向当前vue实例
@@ -329,14 +329,14 @@ this.$utils.every([{a: 11}, {a: 22}]], (item, key) => {
   return item.a === 11 || item.a === 22
 }) // true
 ```
-#### filter ( obj, callback, context ) 根据回调过滤数据
+#### filter ( obj, iteratee, context ) 根据回调过滤数据
 ```shell
 this.$utils.filter([{a: 11}, {a: 22}]], (item, key) => {
   // this.* 指向当前vue实例
   return item.a > 11
 }) // [{a: 22}]
 ```
-#### find ( obj, callback, context ) 查找匹配第一条数据
+#### find ( obj, iteratee, context ) 查找匹配第一条数据
 ```shell
 this.$utils.find([{a: 11}, {a: 22}]], (item, key) => {
   // this.* 指向当前vue实例
@@ -347,7 +347,7 @@ this.$utils.find([{a: 11}, {a: 22}]], (item, key) => {
   return item.a === 22
 }) // {a: 22}
 ```
-#### map ( obj, callback, context ) 指定方法后的返回值组成的新数组
+#### map ( obj, iteratee, context ) 指定方法后的返回值组成的新数组
 ```shell
 this.$utils.map([{a: 11}, {a: 22}]], (item, key) => {
   // this.* 指向当前vue实例
@@ -426,15 +426,23 @@ this.$utils.random() // 0 ~ 9
 this.$utils.random(3, 6) // 3 ~ 6
 this.$utils.random(10, 100) // 10 ~ 100
 ```
-#### min ( arr, callback ) 获取最小值
+#### min ( arr, iteratee ) 获取最小值
 ```shell
 this.$utils.min([22, 66, 77, 11]) // 11
 this.$utils.min([{a: 11}, {a: 44}], 'a') // 11
+this.$utils.min([{a: 11}, {a: 44}], (item) => {
+  // this.* 指向当前vue实例
+  return item.a
+}) // {a: 11}
 ```
-#### max ( arr, callback ) 获取最大值
+#### max ( arr, iteratee ) 获取最大值
 ```shell
 this.$utils.max([22, 66, 77, 11]) // 77
 this.$utils.max([{a: 11}, {a: 44}], 'a') // 44
+this.$utils.max([{a: 11}, {a: 44}], (item) => {
+  // this.* 指向当前vue实例
+  return item.a
+}) // {a: 44}
 ```
 
 ### *./core/string*
@@ -462,11 +470,14 @@ this.$utils.locat() // {hash: '', host: '', hostname: '', href: '', protocol: ''
 ### *./browse/cookie*
 #### cookie ( ) Cookie操作函数
 ```shell
-this.$utils.cookie('c1', 'v111') // 添加/修改
-this.$utils.cookie() // {c1: 'v111', ...}
-this.$utils.cookie('c1') // 'v111'
-this.$utils.cookie('c1', null, {expires: -1}) // 删除
-this.$utils.cookie('c2', 'v222', {domain: 'xxx.com'}) // 添加并设置domain
+this.$utils.cookie() // 获取所有
+this.$utils.cookie('name') // 根据name获取
+this.$utils.cookie('name', null, {expires: -1}) // 删除
+this.$utils.cookie([{name: 'name', expires: -1}]) // 批量删除
+this.$utils.cookie('name', 'value') // 添加/修改
+this.$utils.cookie([{name: 'name', value: 'value'}]) // 批量添加/修改
+this.$utils.cookie('name', 'value', {domain: 'xxx.com', path: '/', expires: 7, secure: true}) // 添加并设置domain/path/secure/expires 7天后过期
+this.$utils.cookie([{name: 'name', value: 'value', domain: 'xxx.com', path: '/', expires: 7, secure: true}]) // 批量添加并设置domain/path/secure/expires 7天后过期
 ```
 
 ## License

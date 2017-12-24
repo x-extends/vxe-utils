@@ -1,4 +1,4 @@
-import { isArray, assign } from '../core/base'
+import { isArray, isObject, assign } from '../core/base'
 
 /**
   * cookie操作函数
@@ -17,7 +17,7 @@ export function cookie (name, value, options) {
     inserts = name
   } else if (arguments.length > 1) {
     inserts = [assign({name: name, value: value}, options)]
-  } else if (name) {
+  } else if (isObject(name)) {
     inserts = [name]
   }
   if (inserts.length > 0) {

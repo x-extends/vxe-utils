@@ -37,13 +37,13 @@ export function union () {
   * 数组按属性值升序
   *
   * @param {Array} arr 数组
-  * @param {Function, String} callback 方法或属性
+  * @param {Function, String} iteratee 方法或属性
   * @return {Array}
   */
-export function sort (arr, callback, context) {
+export function sort (arr, iteratee, context) {
   if (isArray(arr)) {
-    return arr.sort(callback ? isFunction(callback) ? callback.bind(context || this) : function (v1, v2) {
-      return v1[callback] > v2[callback] ? 1 : -1
+    return arr.sort(iteratee ? isFunction(iteratee) ? iteratee.bind(context || this) : function (v1, v2) {
+      return v1[iteratee] > v2[iteratee] ? 1 : -1
     } : function (v1, v2) {
       return v1 > v2 ? 1 : -1
     })
@@ -89,19 +89,19 @@ export function sample (array, number) {
   * 对象中的值中的每一项运行给定函数,如果函数对任一项返回true,则返回true,否则返回false
   *
   * @param {Object} obj 对象/数组
-  * @param {Function} callback(item, index, obj) 回调
+  * @param {Function} iteratee(item, index, obj) 回调
   * @param {Object} context 上下文(this默认指向当前vue组件)
   * @return {Boolean}
   */
-export function some (obj, callback, context) {
+export function some (obj, iteratee, context) {
   if (obj) {
     context = context || this
     if (isArray(obj)) {
-      return obj.some(callback, context)
+      return obj.some(iteratee, context)
     } else {
       for (var index in obj) {
         if (obj.hasOwnProperty(index)) {
-          if (callback.call(context, obj[index], index, obj)) {
+          if (iteratee.call(context, obj[index], index, obj)) {
             return true
           }
         }
@@ -115,19 +115,19 @@ export function some (obj, callback, context) {
   * 对象中的值中的每一项运行给定函数,如果该函数对每一项都返回true,则返回true,否则返回false
   *
   * @param {Object} obj 对象/数组
-  * @param {Function} callback(item, index, obj) 回调
+  * @param {Function} iteratee(item, index, obj) 回调
   * @param {Object} context 上下文(this默认指向当前vue组件)
   * @return {Boolean}
   */
-export function every (obj, callback, context) {
+export function every (obj, iteratee, context) {
   if (obj) {
     context = context || this
     if (isArray(obj)) {
-      return obj.every(callback, context)
+      return obj.every(iteratee, context)
     } else {
       for (var index in obj) {
         if (obj.hasOwnProperty(index)) {
-          if (!callback.call(context, obj[index], index, obj)) {
+          if (!iteratee.call(context, obj[index], index, obj)) {
             return false
           }
         }
@@ -141,19 +141,19 @@ export function every (obj, callback, context) {
   * 根据回调过滤数据
   *
   * @param {Object} obj 对象/数组
-  * @param {Function} callback(item, index, obj) 回调
+  * @param {Function} iteratee(item, index, obj) 回调
   * @param {Object} context 上下文(this默认指向当前vue组件)
   * @return {Object}
   */
-export function filter (obj, callback, context) {
+export function filter (obj, iteratee, context) {
   if (obj) {
     context = context || this
     if (isArray(obj)) {
-      return obj.filter(callback, context)
+      return obj.filter(iteratee, context)
     } else {
       var result = {}
       each(obj, function (val, key) {
-        if (callback.call(context, val, key, obj)) {
+        if (iteratee.call(context, val, key, obj)) {
           result[key] = val
         }
       })
@@ -167,19 +167,19 @@ export function filter (obj, callback, context) {
   * 查找匹配第一条数据
   *
   * @param {Object} obj 对象/数组
-  * @param {Function} callback(item, index, obj) 回调
+  * @param {Function} iteratee(item, index, obj) 回调
   * @param {Object} context 上下文(this默认指向当前vue组件)
   * @return {Object}
   */
-export function find (obj, callback, context) {
+export function find (obj, iteratee, context) {
   if (obj) {
     context = context || this
     if (isArray(obj)) {
-      return obj.find(callback, context)
+      return obj.find(iteratee, context)
     } else {
       for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
-          if (callback.call(context, obj[key], key, obj)) {
+          if (iteratee.call(context, obj[key], key, obj)) {
             return obj[key]
           }
         }
@@ -192,19 +192,19 @@ export function find (obj, callback, context) {
   * 指定方法后的返回值组成的新数组
   *
   * @param {Object} obj 对象/数组
-  * @param {Function} callback(item, index, obj) 回调
+  * @param {Function} iteratee(item, index, obj) 回调
   * @param {Object} context 上下文(this默认指向当前vue组件)
   * @return {Array}
   */
-export function map (obj, callback, context) {
+export function map (obj, iteratee, context) {
   var result = []
   if (obj) {
     context = context || this
     if (isArray(obj)) {
-      return obj.map(callback, context)
+      return obj.map(iteratee, context)
     } else {
       each(obj, function () {
-        result.push(callback.call(context, arguments))
+        result.push(iteratee.call(context, arguments))
       })
     }
   }
