@@ -3,7 +3,7 @@ import * as browse from './src/browse'
 
 function XEUtils () {}
 
-core.assign(XEUtils, {
+Object.assign(XEUtils, {
 
   context: window,
 
@@ -13,9 +13,9 @@ core.assign(XEUtils, {
    * @param {Object} methods 扩展函数对象
    */
   mixin (methods) {
-    core.keys(methods).forEach(function (name) {
+    Object.keys(methods).forEach(function (name) {
       var fn = methods[name]
-      XEUtils[name] = core.isFunction(fn) ? function () {
+      XEUtils[name] = typeof fn === 'function' ? function () {
         var rest = fn.apply(XEUtils.context || window, arguments)
         XEUtils.context = window
         return rest
@@ -31,6 +31,10 @@ XEUtils.mixin(browse)
  * Install Vue plugin
  */
 function plugin (Vue) {
+  Object.defineProperty(Vue, 'utils', function () {
+    XEUtils.context = window
+    return XEUtils
+  })
   Object.defineProperties(Vue.prototype, {
     $locat: {
       get () {

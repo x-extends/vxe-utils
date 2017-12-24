@@ -11,11 +11,10 @@
     "url": "git+https://github.com/xlz26296/vxe-utils.git"
   },
   "keywords": [
+    "utils",
+    "vue-utils",
     "vxe-utils",
-    "xextends",
-    "core",
-    "vxe",
-    "xejs"
+    "vxe"
   ],
   "author": {
     "name": "Xu Liangzhan",
