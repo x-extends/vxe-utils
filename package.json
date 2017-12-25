@@ -1,7 +1,7 @@
 {
   "name": "vxe-utils",
-  "version": "1.0.201",
-  "description": "vxe-utils是扩展Vue的函数库，提供一整套函数式编程功能",
+  "version": "1.0.3",
+  "description": "vxe-utils 使用Vue全局安装xe-utils",
   "main": "index.js",
   "scripts": {
     "test": "make test"
@@ -14,6 +14,7 @@
     "utils",
     "vue-utils",
     "vxe-utils",
+    "xe-utils",
     "vxe"
   ],
   "author": {

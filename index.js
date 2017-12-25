@@ -1,14 +1,7 @@
-import { XEUtils } from './src/constructor'
-import * as core from './src/core'
-import * as browse from './src/browse'
-
-XEUtils.mixin(core)
-XEUtils.mixin(browse)
-
 /**
  * Install Vue plugin
  */
-function plugin (Vue) {
+function plugin (Vue, XEUtils) {
   Object.defineProperty(Vue, 'utils', function () {
     XEUtils.context = window
     return XEUtils
