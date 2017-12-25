@@ -1,26 +1,27 @@
 /**
- * Install Vue plugin
+ * Install Vconstructor
  */
-function plugin (Vue, XEUtils) {
+function plugin (Vue, func) {
+  var constructor = func.utils
   Object.defineProperty(Vue, 'utils', function () {
-    XEUtils.context = window
-    return XEUtils
+    constructor.context = window
+    return constructor
   })
   Object.defineProperties(Vue.prototype, {
     $locat: {
       get () {
-        return XEUtils.locat()
+        return constructor.locat()
       }
     },
     $browse: {
       get () {
-        return XEUtils.browse()
+        return constructor.browse()
       }
     },
     $utils: {
       get () {
-        XEUtils.context = this
-        return XEUtils
+        constructor.context = this
+        return constructor
       }
     }
   })

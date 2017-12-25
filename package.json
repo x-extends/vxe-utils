@@ -1,6 +1,6 @@
 {
   "name": "vxe-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "vxe-utils 使用Vue全局安装xe-utils",
   "main": "index.js",
   "scripts": {
