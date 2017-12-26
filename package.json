@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xlz26296/vxe-utils.git"
+    "url": "git+https://github.com/xuliangzhan/vxe-utils.git"
   },
   "keywords": [
     "utils",
@@ -23,7 +23,7 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xlz26296/vxe-utils/issues"
+    "url": "https://github.com/xuliangzhan/vxe-utils/issues"
   },
-  "homepage": "https://github.com/xlz26296/vxe-utils#readme"
+  "homepage": "https://github.com/xuliangzhan/vxe-utils#readme"
 }
