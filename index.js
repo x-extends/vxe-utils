@@ -1,27 +1,30 @@
+import * as utils from '../xe-utils'
+
 /**
  * Install Vconstructor
  */
-function plugin (Vue, func) {
-  var constructor = func.utils
+function plugin (Vue, methods) {
+  utils.mixin(methods)
+  var XEUtils = utils.constructor
   Object.defineProperty(Vue, 'utils', function () {
-    constructor.context = window
-    return constructor
+    XEUtils.context = window
+    return XEUtils
   })
   Object.defineProperties(Vue.prototype, {
     $locat: {
       get () {
-        return constructor.locat()
+        return XEUtils.locat()
       }
     },
     $browse: {
       get () {
-        return constructor.browse()
+        return XEUtils.browse()
       }
     },
     $utils: {
       get () {
-        constructor.context = this
-        return constructor
+        XEUtils.context = this
+        return XEUtils
       }
     }
   })
