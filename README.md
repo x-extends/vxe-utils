@@ -20,10 +20,10 @@ let date = this.$utils.stringToDate(dateStr)
 ### 支持自定义扩展
 ``` shell
 import Vue from 'vue'
-import VXEAjax from 'vxe-ajax'
+import VXEUtils from 'vxe-utils'
 import customs from './customs' // ./customs.js export function custom1 () {} 
 
-Vue.use(VXEAjax, customs)
+Vue.use(VXEUtils, customs)
 
 // 调用自定义扩展函数
 this.$utils.custom1()
