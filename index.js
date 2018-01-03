@@ -1,4 +1,4 @@
-import * as utils from '../xe-utils'
+import * as utils from 'xe-utils'
 
 /**
  * Install Vconstructor
