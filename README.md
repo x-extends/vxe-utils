@@ -9,9 +9,10 @@ npm install vxe-utils --save
 ### 通过 Vue.use() 来全局安装
 ``` shell
 import Vue from 'vue'
+import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
-Vue.use(VXEUtils)
+Vue.use(VXEUtils, XEUtils)
 
 let dateStr = this.$utils.dateToString(new Date())
 let date = this.$utils.stringToDate(dateStr)
@@ -20,10 +21,12 @@ let date = this.$utils.stringToDate(dateStr)
 ### 支持自定义扩展
 ``` shell
 import Vue from 'vue'
+import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 import customs from './customs' // ./customs.js export function custom1 () {} 
 
-Vue.use(VXEUtils, customs)
+XEUtils.mixin(customs)
+Vue.use(VXEUtils, XEUtils)
 
 // 调用自定义扩展函数
 this.$utils.custom1()
