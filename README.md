@@ -14,8 +14,9 @@ import VXEUtils from 'vxe-utils'
 
 Vue.use(VXEUtils, XEUtils)
 
-let dateStr = this.$utils.dateToString(new Date())
-let date = this.$utils.stringToDate(dateStr)
+// 通过vue实例的调用方式
+const dateStr = this.$utils.dateToString(new Date())
+const date = this.$utils.stringToDate(dateStr)
 ```
 
 ## License
