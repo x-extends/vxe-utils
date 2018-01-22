@@ -1,4 +1,4 @@
-# vxe-utils 用于Vue全局安装xe-utils
+# VXEUtils 用于Vue全局安装xe-utils
 
 ## 通过NPM安装最新版本
 
