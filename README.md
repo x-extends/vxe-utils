@@ -26,7 +26,7 @@ export function custom1 () {
   console.log('自定义函数')
 } 
 ```
-#### 代码
+#### 示例
 ``` shell
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
