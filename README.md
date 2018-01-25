@@ -40,5 +40,42 @@ Vue.use(VXEUtils, XEUtils)
 this.$utils.custom1()
 ```
 
+#### 案例
+./Home.vue
+``` shell
+<template>
+  <div>
+    <ul>
+      <li v-for="item in list" :key="item.id">{{ item.dateStr }}</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      list: []
+    }
+  },
+  methods: {
+    init () {
+      this.$ajax.getJSON('services/user/list', {id: 123})
+      .then(data => {
+        this.list = data.map(item => {
+          item.dateStr = this.$utils.dateToString(item.date, 'MM/dd/yyyy')
+        })
+      }).catch(data => {
+        this.list = []
+      })
+    }
+  },
+  created () {
+    this.init()
+  }
+}
+</script>
+```
+
 ## License
 Copyright (c) 2017-present, Xu Liangzhan
