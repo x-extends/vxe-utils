@@ -1,5 +1,7 @@
 # VXEUtils 用于Vue全局安装 xe-utils
 
+安装完成后自动挂载在vue实例 this.$utils this.$browse this.$locat
+
 ## 通过NPM安装最新版本
 
 ``` shell
