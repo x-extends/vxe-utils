@@ -18,7 +18,7 @@ Vue.use(VXEUtils, XEUtils)
 
 // 通过vue实例的调用方式
 const dateStr = this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
-const date = this.$utils.stringToDate(dateStr, 'yyyy-MM-dd')
+const date = this.$utils.stringToDate('11/20/2017 10:10:30', 'MM/dd/yyyy HH:mm:ss')
 ```
 
 ### 混合函数
