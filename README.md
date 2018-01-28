@@ -2,8 +2,44 @@
 
 安装完成后自动挂载在vue实例 this.$utils(函数库) this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)
 
-## 通过NPM安装最新版本
+### 直接引用 script 全局安装，VXEUtils 会定义为全局变量
+``` shell
+<script src="./dist/xe-utils.min.js" type="text/javascript"></script>
+<script src="./dist/vxe-utils.min.js" type="text/javascript"></script>
 
+// ./main.js 安装
+Vue.use(VXEUtils, XEUtils)
+
+// ./app.js 通过vue实例的调用方式
+// ...vue代码省略
+VXEUtils.dateToString(new Date(), 'yyyy-MM-dd')
+```
+
+### AMD 安装， 以 require.js 为例
+``` shell
+// require 配置
+require.config({
+  paths: {
+    // ...,
+    'xe-utils': './dist/xe-utils.min',
+    'vxe-utils': './dist/vxe-utils.min'
+  }
+})
+
+// ./main.js 安装
+define(['Vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
+  Vue.use(VXEUtils, XEUtils)
+})
+
+// ./app.js 调用
+define([], function () {
+  // 通过vue实例的调用方式
+  // ...vue代码省略
+  this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
+})
+```
+
+### ES6 Module 安装方式
 ``` shell
 npm install vxe-utils --save
 ```
