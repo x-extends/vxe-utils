@@ -1,6 +1,6 @@
 # VXEUtils 用于Vue全局安装 xe-utils
 
-安装完成后自动挂载在vue实例 this.$utils(函数库) this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)
+安装完成后自动挂载在vue实例 this.$utils
 
 ### 直接引用 script 全局安装，VXEUtils 会定义为全局变量
 ``` shell
