@@ -12,7 +12,7 @@ Vue.use(VXEUtils, XEUtils)
 
 // ./app.js 通过vue实例的调用方式
 // ...vue代码省略
-VXEUtils.dateToString(new Date(), 'yyyy-MM-dd')
+this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
 ```
 
 ### AMD 安装， 以 require.js 为例
@@ -57,13 +57,7 @@ const dateStr = this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
 const date = this.$utils.stringToDate('11/20/2017 10:10:30', 'MM/dd/yyyy HH:mm:ss')
 ```
 
-### 混合函数
-#### 文件 ./customs.js
-``` shell
-export function custom1 () {
-  console.log('自定义函数')
-} 
-```
+### vue 实例挂载自定义属性
 #### 示例
 ``` shell
 import Vue from 'vue'
@@ -72,10 +66,11 @@ import VXEUtils from 'vxe-utils'
 import customs from './customs'
 
 XEUtils.mixin(customs)
-Vue.use(VXEUtils, XEUtils)
+Vue.use(VXEUtils, XEUtils, {mounts: ['locat', 'browse', 'cookie']})
 
-// 调用自定义扩展函数
-this.$utils.custom1()
+this.$locat // this.$locat.origin
+this.$browse // this.$browse['-webkit'] true
+this.$cookie // this.$cookie('name', 'value')
 ```
 
 #### 案例
@@ -84,7 +79,7 @@ this.$utils.custom1()
 <template>
   <div>
     <ul>
-      <li v-for="item in list" :key="item.id">{{ item.dateStr }}</li>
+      <li v-for="item in list" :key="item.id">{{ item.dateStr }}或者{{ $utils.dateToString(item.date) }}</li>
     </ul>
   </div>
 </template>

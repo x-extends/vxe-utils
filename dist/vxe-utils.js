@@ -1,5 +1,5 @@
 /*!
- * vxe-ajax.js v1.3.0
+ * vxe-ajax.js v1.3.2
  * (c) 2017-2018 Xu Liangzhan
  * ISC License.
  */
@@ -8,18 +8,32 @@
 }(this, function () {
   'use strict'
 
-  function plugin (Vue, XEUtils) {
-    Object.defineProperty(Vue.prototype, '$locat', {
-      get: XEUtils.locat
-    })
-    Object.defineProperty(Vue.prototype, '$browse', {
-      get: XEUtils.browse
-    })
+  function plugin (Vue, XEUtils, options) {
     Object.defineProperty(Vue.prototype, '$utils', {
       get: function () {
         return XEUtils
       }
     })
+    if (options && options.mounts && options.mounts.length) {
+      var mounts = options.mounts.join(';')
+      if (mounts.indexOf('locat') > -1) {
+        Object.defineProperty(Vue.prototype, '$locat', {
+          get: XEUtils.locat
+        })
+      }
+      if (mounts.indexOf('browse') > -1) {
+        Object.defineProperty(Vue.prototype, '$browse', {
+          get: XEUtils.browse
+        })
+      }
+      if (mounts.indexOf('cookie') > -1) {
+        Object.defineProperty(Vue.prototype, '$cookie', {
+          get: function () {
+            return XEUtils.cookie
+          }
+        })
+      }
+    }
   }
 
   return plugin
