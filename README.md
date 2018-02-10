@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.org/package/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
 
-安装完成后自动挂载在vue实例 this.$utils
+安装完成后自动挂载在vue实例 this.$utils, 通过 this.$utils 调用的函数 this 默认指向当前vue实例。
 
 ### 直接引用 script 全局安装，VXEUtils 会定义为全局变量
 ``` shell
@@ -16,6 +16,11 @@ Vue.use(VXEUtils, XEUtils)
 // ./app.js 通过vue实例的调用方式
 // ...vue代码省略
 this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
+this.$utils.map([{name: 1}], function (item) {
+  // this 默认指向当前vue实例
+  return item
+})
+// ...vue代码省略
 ```
 
 ### AMD 安装， 以 require.js 为例
@@ -39,6 +44,11 @@ define([], function () {
   // 通过vue实例的调用方式
   // ...vue代码省略
   this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
+  this.$utils.map([{name: 1}], function (item) {
+    // this 默认指向当前vue实例
+    return item
+  })
+  // ...vue代码省略
 })
 ```
 

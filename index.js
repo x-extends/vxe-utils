@@ -1,6 +1,7 @@
 function plugin (Vue, XEUtils, options) {
   Object.defineProperty(Vue.prototype, '$utils', {
     get: function () {
+      XEUtils.context = this
       return XEUtils
     }
   })

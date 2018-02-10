@@ -1,5 +1,5 @@
 /*!
- * vxe-ajax.js v1.3.3
+ * vxe-ajax.js v1.3.4
  * (c) 2017-2018 Xu Liangzhan
  * ISC License.
  */
@@ -11,6 +11,7 @@
   function plugin (Vue, XEUtils, options) {
     Object.defineProperty(Vue.prototype, '$utils', {
       get: function () {
+        XEUtils.context = this
         return XEUtils
       }
     })
