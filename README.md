@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
 
 安装完成后自动挂载在vue实例 this.$utils, this.$utils(函数库) this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)<br/>
-安装完成通过 this.$utils 调用的函数 this 默认指向当前vue实例。
+在 vue 实例中通过 this.$utils 调用的函数 this 默认指向当前vue实例。
 
 ### 直接引用 script 全局安装，VXEUtils 会定义为全局变量
 ``` shell
