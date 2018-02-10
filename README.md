@@ -7,22 +7,16 @@
 支持挂载函数列表：this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)<br/>
 在 vue 实例中通过 this.$utils 调用的函数 this 默认指向当前vue实例。
 
-### 直接引用 script 全局安装，VXEUtils 会定义为全局变量
+### CDN 安装
+使用 script 方式安装，VXEUtils 会定义为全局变量<br/>
+生产环境请使用 vxe-utils.min.js，更小的压缩版本，可以带来更快的速度体验。
+#### cdnjs 获取最新版本, [点击浏览](https://cdn.jsdelivr.net/npm/vxe-utils/)已发布的所有 npm 包的源代码。
 ``` shell
-<script src="./dist/xe-utils.min.js" type="text/javascript"></script>
-<script src="./dist/vxe-utils.min.js" type="text/javascript"></script>
-
-// ./main.js 安装
-Vue.use(VXEUtils, XEUtils)
-
-// ./app.js 通过vue实例的调用方式
-// ...vue代码省略
-this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
-this.$utils.map([{name: 1}], function (item) {
-  // this 默认指向当前vue实例
-  return item
-})
-// ...vue代码省略
+<script src="https://cdn.jsdelivr.net/npm/vxe-utils@1.3.4/dist/vxe-utils.js" type="text/javascript"></script>
+```
+#### unpkg 获取最新版本, [点击浏览](https://unpkg.com/vxe-utils@1.3.4/)已发布的所有 npm 包的源代码
+``` shell
+<script src="https://unpkg.com/vxe-utils@1.3.4/dist/vxe-utils.js" type="text/javascript"></script>
 ```
 
 ### AMD 安装， 以 require.js 为例
