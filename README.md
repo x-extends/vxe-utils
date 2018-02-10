@@ -56,7 +56,7 @@ define([], function () {
 
 ### ES6 Module 安装方式
 ``` shell
-npm install vxe-utils --save
+npm install xe-utils vxe-utils --save
 ```
 
 ### 通过 Vue.use() 来全局安装
