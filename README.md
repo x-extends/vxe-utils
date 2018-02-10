@@ -1,5 +1,8 @@
 # VXEUtils 用于Vue全局安装 xe-utils
 
+[![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.org/package/vxe-utils)
+[![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
+
 安装完成后自动挂载在vue实例 this.$utils
 
 ### 直接引用 script 全局安装，VXEUtils 会定义为全局变量
