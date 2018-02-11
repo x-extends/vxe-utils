@@ -7,10 +7,6 @@
 支持挂载函数列表：this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)<br/>
 在 vue 实例中通过 this.$utils 调用的函数 this 默认指向当前vue实例。
 
-### 兼容性
-任何支持 Promise 的环境都能运行，低版本浏览器使用 polyfill<br/>
-支持 IE8+、Edge、Chrome、Firefox、Opera、Safari等...
-
 ### CDN 安装
 使用 script 方式安装，VXEUtils 会定义为全局变量<br/>
 生产环境请使用 vxe-utils.min.js，更小的压缩版本，可以带来更快的速度体验。
