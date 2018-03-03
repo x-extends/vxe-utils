@@ -3,23 +3,26 @@
 [![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.org/package/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
 
-安装完成后自动挂载在vue实例：this.$utils(函数库) <br/>
-支持挂载函数列表：this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)<br/>
+安装完成后自动挂载在vue实例：this.$utils(函数库)   
+支持挂载函数列表：this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)  
 在 vue 实例中通过 this.$utils 调用的函数 this 默认指向当前vue实例。
 
-### CDN 安装
-使用 script 方式安装，VXEUtils 会定义为全局变量<br/>
+## CDN 安装
+使用 script 方式安装，VXEUtils 会定义为全局变量  
 生产环境请使用 vxe-utils.min.js，更小的压缩版本，可以带来更快的速度体验。
-#### cdnjs 获取最新版本, [点击浏览](https://cdn.jsdelivr.net/npm/vxe-utils/)已发布的所有 npm 包的源代码。
+### cdnjs 获取最新版本
+[点击浏览](https://cdn.jsdelivr.net/npm/vxe-utils/)已发布的所有 npm 包的源代码。
 ``` shell
 <script src="https://cdn.jsdelivr.net/npm/vxe-utils@1.3.4/dist/vxe-utils.js"></script>
 ```
-#### unpkg 获取最新版本, [点击浏览](https://unpkg.com/vxe-utils@1.3.4/)已发布的所有 npm 包的源代码
+### unpkg 获取最新版本
+[点击浏览](https://unpkg.com/vxe-utils@1.3.4/)已发布的所有 npm 包的源代码
 ``` shell
 <script src="https://unpkg.com/vxe-utils@1.3.4/dist/vxe-utils.js"></script>
 ```
 
-### AMD 安装， 以 require.js 为例
+## AMD 安装
+### require.js 安装示例
 ``` shell
 // require 配置
 require.config({
@@ -34,21 +37,9 @@ require.config({
 define(['Vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
   Vue.use(VXEUtils, XEUtils)
 })
-
-// ./app.js 调用
-define([], function () {
-  // 通过vue实例的调用方式
-  // ...vue代码省略
-  this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
-  this.$utils.map([{name: 1}], function (item) {
-    // this 默认指向当前vue实例
-    return item
-  })
-  // ...vue代码省略
-})
 ```
 
-### ES6 Module 安装方式
+## ES6 Module 安装方式
 ``` shell
 npm install xe-utils vxe-utils --save
 ```
@@ -66,8 +57,8 @@ const dateStr = this.$utils.dateToString(new Date(), 'yyyy-MM-dd')
 const date = this.$utils.stringToDate('11/20/2017 10:10:30', 'MM/dd/yyyy HH:mm:ss')
 ```
 
-### vue 实例挂载自定义属性
-#### 示例
+## vue 实例挂载自定义属性
+### 示例
 ``` shell
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
@@ -82,14 +73,14 @@ this.$browse // this.$browse['-webkit'] true
 this.$cookie // this.$cookie('name', 'value')
 ```
 
-### 混合函数
-#### 文件 ./customs.js
+## 混合函数
+### 文件 ./customs.js
 ``` shell
 export function custom1 () {
   console.log('自定义函数')
 } 
 ```
-#### 示例
+### 示例 ./main.js
 ``` shell
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
@@ -102,7 +93,7 @@ Vue.use(VXEUtils, XEUtils)
 XEUtils.custom1()
 ```
 
-#### 案例
+## 示例
 ./Home.vue
 ``` shell
 <template>
