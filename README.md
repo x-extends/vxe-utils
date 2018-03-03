@@ -94,7 +94,7 @@ XEUtils.custom1()
 ```
 
 ## 示例
-./Home.vue
+Home.vue
 ``` shell
 <template>
   <div>
