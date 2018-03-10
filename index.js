@@ -1,7 +1,7 @@
-function plugin (Vue, XEUtils, options) {
+function VXEUtils (Vue, XEUtils, options) {
   Object.defineProperty(Vue.prototype, '$utils', {
     get: function () {
-      XEUtils.context = this
+      XEUtils.$context = this
       return XEUtils
     }
   })
@@ -27,4 +27,4 @@ function plugin (Vue, XEUtils, options) {
   }
 }
 
-export default plugin
+export default VXEUtils

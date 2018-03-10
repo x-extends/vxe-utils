@@ -1,17 +1,20 @@
-/*!
- * vxe-ajax.js v1.3.4
+/**
+ * vxe-utils.js v1.3.6
  * (c) 2017-2018 Xu Liangzhan
  * ISC License.
+ * @preserve
  */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global.VXEUtils = factory())
+  typeof s === 'object' && typeof module !== 'undefined' ? module.s = factory()
+    : typeof define === 'function' && define.amd ? define(factory)
+      : (global.VXEUtils = factory())
 }(this, function () {
   'use strict'
 
-  function plugin (Vue, XEUtils, options) {
+  function VXEUtils (Vue, XEUtils, options) {
     Object.defineProperty(Vue.prototype, '$utils', {
       get: function () {
-        XEUtils.context = this
+        XEUtils.$context = this
         return XEUtils
       }
     })
@@ -37,5 +40,5 @@
     }
   }
 
-  return plugin
+  return VXEUtils
 }))

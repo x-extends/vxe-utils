@@ -13,12 +13,12 @@
 ### cdnjs 获取最新版本
 [点击浏览](https://cdn.jsdelivr.net/npm/vxe-utils/)已发布的所有 npm 包的源代码。
 ``` shell
-<script src="https://cdn.jsdelivr.net/npm/vxe-utils@1.3.4/dist/vxe-utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vxe-utils/dist/vxe-utils.js"></script>
 ```
 ### unpkg 获取最新版本
-[点击浏览](https://unpkg.com/vxe-utils@1.3.4/)已发布的所有 npm 包的源代码
+[点击浏览](https://unpkg.com/vxe-utils/)已发布的所有 npm 包的源代码
 ``` shell
-<script src="https://unpkg.com/vxe-utils@1.3.4/dist/vxe-utils.js"></script>
+<script src="https://unpkg.com/vxe-utils/dist/vxe-utils.js"></script>
 ```
 
 ## AMD 安装
