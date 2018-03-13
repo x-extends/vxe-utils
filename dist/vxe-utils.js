@@ -1,11 +1,11 @@
 /**
- * vxe-utils.js v1.3.6
+ * vxe-utils.js v1.3.5
  * (c) 2017-2018 Xu Liangzhan
  * ISC License.
  * @preserve
  */
 (function (global, factory) {
-  typeof s === 'object' && typeof module !== 'undefined' ? module.s = factory()
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory()
     : typeof define === 'function' && define.amd ? define(factory)
       : (global.VXEUtils = factory())
 }(this, function () {
