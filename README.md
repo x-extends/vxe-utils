@@ -114,16 +114,15 @@ Home.vue
 export default {
   data () {
     return {
-      list: [{
-        date: '2018-01-01 10:00:00'
-      }]
+      list: []
     }
   },
   methods: {
     init () {
-      this.list = data.map(item => {
-        item.dateStr = this.$utils.dateToString(item.date, 'MM/dd/yyyy')
-      })
+      this.list = [{
+        id: this.$utils.uniqueId()
+        date: this.$utils.dateToString('2018-01-01 10:00:00', 'MM/dd/yyyy')
+      }]
     }
   },
   created () {
