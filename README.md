@@ -7,6 +7,12 @@
 支持挂载函数列表：this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)  
 在 vue 实例中通过 this.$utils 调用的函数 this 默认指向当前vue实例。
 
+## 兼容性
+
+![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- | --- |
+9+ ✔ | ✔ | ✔ | ✔ | 6.1+ ✔ |
+
 ## CDN 安装
 使用 script 方式安装，VXEUtils 会定义为全局变量  
 生产环境请使用 vxe-utils.min.js，更小的压缩版本，可以带来更快的速度体验。
@@ -69,7 +75,7 @@ XEUtils.mixin(customs)
 Vue.use(VXEUtils, XEUtils, {mounts: ['locat', 'browse', 'cookie']})
 
 this.$locat // this.$locat.origin
-this.$browse // this.$browse['-webkit'] true
+this.$browse // this.$browse['-webkit']
 this.$cookie // this.$cookie('name', 'value')
 ```
 
@@ -108,18 +114,15 @@ Home.vue
 export default {
   data () {
     return {
-      list: []
+      list: [{
+        date: '2018-01-01 10:00:00'
+      }]
     }
   },
   methods: {
     init () {
-      this.$ajax.getJSON('services/user/list', {id: 123})
-      .then(data => {
-        this.list = data.map(item => {
-          item.dateStr = this.$utils.dateToString(item.date, 'MM/dd/yyyy')
-        })
-      }).catch(data => {
-        this.list = []
+      this.list = data.map(item => {
+        item.dateStr = this.$utils.dateToString(item.date, 'MM/dd/yyyy')
       })
     }
   },
