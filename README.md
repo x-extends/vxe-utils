@@ -79,26 +79,6 @@ this.$browse // this.$browse['-webkit']
 this.$cookie // this.$cookie('name', 'value')
 ```
 
-## 混合函数
-### 文件 ./customs.js
-``` shell
-export function custom1 () {
-  console.log('自定义函数')
-} 
-```
-### 示例 ./main.js
-``` shell
-import Vue from 'vue'
-import XEUtils from 'xe-utils'
-import customs from './customs'
-
-XEUtils.mixin(customs)
-Vue.use(VXEUtils, XEUtils)
-
-// 调用自定义扩展函数
-XEUtils.custom1()
-```
-
 ## 示例
 Home.vue
 ``` shell
