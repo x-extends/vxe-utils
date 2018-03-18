@@ -3,9 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.org/package/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
 
-安装完成后自动挂载在vue实例：this.$utils(函数库)   
-支持挂载函数列表：this.$browse(浏览器内核判断) this.$locat(用于读写地址栏参数)  
-在 vue 实例中通过 this.$utils 调用的函数 this 默认指向当前vue实例。
+安装完成后自动挂载在 vue 实例 this.$utils
 
 ## 兼容性
 
@@ -41,7 +39,7 @@ require.config({
 
 // ./main.js 安装
 define(['Vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
-  Vue.use(VXEUtils, XEUtils)
+  Vue.use(VXEUtils, XEUtils, {mounts: ['locat', 'browse', 'cookie']})
 })
 ```
 
@@ -72,9 +70,8 @@ import VXEUtils from 'vxe-utils'
 import customs from './customs'
 
 XEUtils.mixin(customs)
-Vue.use(VXEUtils, XEUtils, {mounts: ['locat', 'browse', 'cookie']})
+Vue.use(VXEUtils, XEUtils, {mounts: ['browse', 'cookie']})
 
-this.$locat // this.$locat.origin
 this.$browse // this.$browse['-webkit']
 this.$cookie // this.$cookie('name', 'value')
 ```
