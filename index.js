@@ -27,4 +27,4 @@ function VXEUtils (Vue, XEUtils, options) {
   }
 }
 
-export default VXEUtils
+module.exports = VXEUtils
