@@ -39,7 +39,7 @@ require.config({
 
 // ./main.js 安装
 define(['Vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
-  Vue.use(VXEUtils, XEUtils, {mounts: ['locat', 'browse', 'cookie']})
+  Vue.use(VXEUtils, XEUtils)
 })
 ```
 
