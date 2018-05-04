@@ -16,18 +16,18 @@
 生产环境请使用 vxe-utils.min.js，更小的压缩版本，可以带来更快的速度体验。
 ### cdnjs 获取最新版本
 [点击浏览](https://cdn.jsdelivr.net/npm/vxe-utils/)已发布的所有 npm 包的源代码。
-``` shell
+```HTML
 <script src="https://cdn.jsdelivr.net/npm/vxe-utils/dist/vxe-utils.js"></script>
 ```
 ### unpkg 获取最新版本
 [点击浏览](https://unpkg.com/vxe-utils/)已发布的所有 npm 包的源代码
-``` shell
+```HTML
 <script src="https://unpkg.com/vxe-utils/dist/vxe-utils.js"></script>
 ```
 
 ## AMD 安装
 ### require.js 安装示例
-``` shell
+```JavaScript
 // require 配置
 require.config({
   paths: {
@@ -44,12 +44,12 @@ define(['Vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
 ```
 
 ## ES6 Module 安装方式
-``` shell
+```JavaScript
 npm install xe-utils vxe-utils --save
 ```
 
 ### 通过 Vue.use() 来全局安装
-``` shell
+```JavaScript
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
@@ -63,7 +63,7 @@ const date = this.$utils.stringToDate('11/20/2017 10:10:30', 'MM/dd/yyyy HH:mm:s
 
 ## vue 实例挂载自定义属性
 ### 示例
-``` shell
+```JavaScript
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
@@ -78,7 +78,7 @@ this.$cookie // this.$cookie('name', 'value')
 
 ## 示例
 Home.vue
-``` shell
+```HTML
 <template>
   <div>
     <ul>
