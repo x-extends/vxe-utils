@@ -3,8 +3,6 @@
 [![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.org/package/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
 
-安装完成后自动挂载在 vue 实例 this.$utils
-
 ## 兼容性
 
 ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
@@ -72,7 +70,7 @@ import customs from './customs'
 XEUtils.mixin(customs)
 Vue.use(VXEUtils, XEUtils, {mounts: ['browse', 'cookie']})
 
-this.$browse // this.$browse['-webkit']
+this.$browse // this.$browse.isPC
 this.$cookie // this.$cookie('name', 'value')
 ```
 
@@ -97,7 +95,7 @@ export default {
   methods: {
     init () {
       this.list = [{
-        id: this.$utils.uniqueId()
+        id: 123
         date: this.$utils.dateToString('2018-01-01 10:00:00', 'MM/dd/yyyy')
       }]
     }
