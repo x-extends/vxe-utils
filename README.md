@@ -71,7 +71,7 @@ XEUtils.mixin(customs)
 Vue.use(VXEUtils, XEUtils, {mounts: ['browse', 'cookie']})
 
 this.$browse // this.$browse.isPC
-this.$cookie // this.$cookie('name', 'value')
+this.$cookie() // this.$cookie('name', 'value')
 ```
 
 ## 示例
