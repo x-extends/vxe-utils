@@ -1,4 +1,4 @@
-# VXEUtils 用于 Vue 全局安装 xe-utils
+# 用于 Vue 全局安装 xe-utils
 
 [![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.org/package/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
