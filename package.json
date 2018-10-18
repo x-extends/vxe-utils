@@ -1,7 +1,7 @@
 {
   "name": "vxe-utils",
   "version": "1.4.0",
-  "description": "VXEUtils 用于Vue全局安装 xe-utils",
+  "description": "用于 Vue 全局安装 xe-utils",
   "main": "index.js",
   "scripts": {
     "test": "make test"
