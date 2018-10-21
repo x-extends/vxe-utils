@@ -33,9 +33,6 @@ npm install xe-utils vxe-utils --save
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
-import customs from './customs'
-
-XEUtils.mixin(customs)
 
 // mounts 可以设置['cookie', 'browse', 'locat']
 Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})

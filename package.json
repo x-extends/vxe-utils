@@ -1,6 +1,6 @@
 {
   "name": "vxe-utils",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "用于 Vue 全局安装 xe-utils",
   "main": "index.js",
   "scripts": {
