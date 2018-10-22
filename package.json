@@ -29,6 +29,6 @@
   "homepage": "https://github.com/xuliangzhan/vxe-utils#readme",
   "devDependencies": {
     "vue": "^2.5.16",
-    "xe-utils": "^1.6.22"
+    "xe-utils": "^1.6.23"
   }
 }
