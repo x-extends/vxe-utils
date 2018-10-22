@@ -38,43 +38,10 @@ import VXEUtils from 'vxe-utils'
 Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})
 ```
 
-## 示例
+## 使用
 
-./Home.vue
-
-```HTML
-<template>
-  <div>
-    <ul>
-      <li v-for="(item, index) in list" :key="index">
-        <span>{{ $utils.dateToString(item.date1) }}</span>
-        <span>{{ item.date2 }}</span>
-      </li>
-    </ul>
-  </div>
-</template>
-
-<script>
-export default {
-  data () {
-    return {
-      list: []
-    }
-  },
-  methods: {
-    init () {
-      this.list = [{
-        id: 123,
-        date1: new Date(),
-        date2: this.$utils.dateToString(new Date(), 'MM/dd/yyyy')
-      }]
-    }
-  },
-  created () {
-    this.init()
-  }
-}
-</script>
+```JavaScript
+this.$utils.dateToString(new Date(), 'MM/dd/yyyy HH:mm:ss.SSS')
 ```
 
 ## License
