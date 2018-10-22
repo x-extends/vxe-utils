@@ -1,5 +1,5 @@
 /**
- * vxe-utils.js v1.4.1
+ * vxe-utils.js v1.4.2
  * (c) 2017-2018 Xu Liangzhan
  * ISC License.
  * @preserve

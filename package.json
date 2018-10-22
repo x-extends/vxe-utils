@@ -1,6 +1,6 @@
 {
   "name": "vxe-utils",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A small wrapper for integrating xe-utils to Vuejs.",
   "main": "index.js",
   "typing": "index.d.ts",
