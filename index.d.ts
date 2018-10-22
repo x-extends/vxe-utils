@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import XEUtils from 'xe-utils'
+import { XEUtilsMethods } from 'xe-utils'
 
 /**
  * 用于 Vue 全局安装 xe-utils
@@ -12,7 +12,7 @@ declare var VXEUtils;
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $utils: XEUtils
+    $utils: XEUtilsMethods
   }
 }
 
