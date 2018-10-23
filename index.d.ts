@@ -12,7 +12,7 @@ declare var VXEUtils;
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $utils: XEUtilsMethods
+    $utils: XEUtilsMethods;
   }
 }
 
