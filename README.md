@@ -40,8 +40,28 @@ Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})
 
 ## 使用
 
-```JavaScript
-this.$utils.dateToString(new Date(), 'MM/dd/yyyy HH:mm:ss.SSS')
+```html
+<template>
+  <div>{{ $utils.toDateString(startDate, 'yyyy-dd-MM HH:mm:ss') }}</div>
+  <div>{{ endDate }}</div>
+</template>
+```
+
+```html
+<script>
+export default {
+  name: 'App',
+  data: {
+    return {
+      startDate: new Date(),
+      endDate: null
+    }
+  },
+  created () {
+    this.endDate = this.$utils.toDateString(new Date(), 'MM/dd/yyyy HH:mm:ss.SSS')
+  }
+}
+</script>
 ```
 
 ## License
