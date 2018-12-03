@@ -5,7 +5,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
 [![npm license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/xuliangzhan/vxe-utils/blob/master/LICENSE)
 
-## AMD 安装
+## AMD install
 
 ```JavaScript
 // require 配置
@@ -23,13 +23,13 @@ define(['Vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
 })
 ```
 
-## NPM 安装方式
+## NPM install
 
 ```JavaScript
 npm install xe-utils vxe-utils --save
 ```
 
-### 通过 Vue.use() 来全局安装
+## Demo
 
 ```JavaScript
 import Vue from 'vue'
@@ -39,8 +39,6 @@ import VXEUtils from 'vxe-utils'
 // mounts 可以设置['cookie', 'browse', 'locat']
 Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})
 ```
-
-## 使用
 
 ```html
 <template>
