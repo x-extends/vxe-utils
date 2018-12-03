@@ -1,7 +1,7 @@
 function VXEUtils (Vue, XEUtils, options) {
   var mounts = options && options.mounts && options.mounts.length ? options.mounts.join(';') : []
   var definePro = function (name, getFn) {
-    Object.defineProperty(Vue.prototype, '$' + name, {get: getFn})
+    Object.defineProperty(Vue.prototype, '$' + name, { get: getFn })
   }
   var setMount = function (name, callback) {
     if (mounts.indexOf(name) > -1) {

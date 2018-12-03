@@ -1,22 +1,35 @@
 {
   "name": "vxe-utils",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A small wrapper for integrating xe-utils to Vuejs.",
   "main": "index.js",
   "typing": "index.d.ts",
   "scripts": {
-    "test": "make test"
+    "lint": "eslint dist/vxe-utils.js index.js",
+    "test": "npm run lint"
+  },
+  "devDependencies": {
+    "vue": "^2.5.17",
+    "xe-utils": "^1.6.23",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "markdown-doctest": "^0.9.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xuliangzhan/vxe-utils.git"
   },
   "keywords": [
-    "utils",
+    "utils.js",
     "vue-utils",
     "vxe-utils",
     "xe-utils",
-    "vxe"
+    "VXEUtils"
   ],
   "author": {
     "name": "Xu Liangzhan",
@@ -26,9 +39,5 @@
   "bugs": {
     "url": "https://github.com/xuliangzhan/vxe-utils/issues"
   },
-  "homepage": "https://github.com/xuliangzhan/vxe-utils#readme",
-  "devDependencies": {
-    "vue": "^2.5.17",
-    "xe-utils": "^1.6.23"
-  }
+  "homepage": "https://github.com/xuliangzhan/vxe-utils#readme"
 }
