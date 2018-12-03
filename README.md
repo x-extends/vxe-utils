@@ -5,7 +5,13 @@
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
 [![npm license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/xuliangzhan/vxe-utils/blob/master/LICENSE)
 
-## AMD install
+## Installing
+
+```JavaScript
+npm install xe-utils vxe-utils --save
+```
+
+Using requirejs
 
 ```JavaScript
 // require 配置
@@ -16,20 +22,12 @@ require.config({
     'vxe-utils': './dist/vxe-utils.min'
   }
 })
-
-// ./main.js 安装
 define(['Vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
   Vue.use(VXEUtils, XEUtils)
 })
 ```
 
-## NPM install
-
-```JavaScript
-npm install xe-utils vxe-utils --save
-```
-
-## Demo
+## Example
 
 ```JavaScript
 import Vue from 'vue'
