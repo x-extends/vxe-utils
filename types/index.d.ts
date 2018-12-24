@@ -2,11 +2,7 @@ import Vue from 'vue'
 import { XEUtilsMethods } from 'xe-utils'
 
 /**
- * 用于 Vue 全局安装 xe-utils
- * @example 
- ```javascript
- Vue.use(VXEUtils, XEUtils)
- ```
+ * A small wrapper for integrating xe-utils to Vuejs.
  */
 declare var VXEUtils;
 
