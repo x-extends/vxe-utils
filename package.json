@@ -1,9 +1,9 @@
 {
   "name": "vxe-utils",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "A small wrapper for integrating xe-utils to Vuejs.",
   "main": "index.js",
-  "typing": "types/index.d.ts",
+  "typings": "types/index.d.ts",
   "scripts": {
     "lint": "eslint dist/vxe-utils.js index.js",
     "test": "npm run lint"
