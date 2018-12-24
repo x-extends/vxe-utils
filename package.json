@@ -1,16 +1,17 @@
 {
   "name": "vxe-utils",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "A small wrapper for integrating xe-utils to Vuejs.",
   "main": "index.js",
-  "typing": "index.d.ts",
+  "typing": "types/index.d.ts",
   "scripts": {
     "lint": "eslint dist/vxe-utils.js index.js",
     "test": "npm run lint"
   },
   "files": [
     "src",
-    "dist/*.js"
+    "types",
+    "dist"
   ],
   "devDependencies": {
     "vue": "^2.5.17",
@@ -39,7 +40,7 @@
     "name": "Xu Liangzhan",
     "email": "xu_liangzhan@163.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/xuliangzhan/vxe-utils/issues"
   },
