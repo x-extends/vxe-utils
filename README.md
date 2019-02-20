@@ -7,13 +7,13 @@
 
 ## Installing
 
-```JavaScript
+```javascript
 npm install xe-utils vxe-utils --save
 ```
 
 Using requirejs
 
-```JavaScript
+```javascript
 // require 配置
 require.config({
   paths: {
@@ -29,7 +29,7 @@ define(['Vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
 
 ## Example
 
-```JavaScript
+```javascript
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
