@@ -21,6 +21,8 @@ Get on [unpkg](https://unpkg.com/vxe-utils/) and [cdnjs](https://cdn.jsdelivr.ne
 
 ## Example
 
+[Run this demo on jsfiddle.net](https://jsfiddle.net/tcf15qu4/)
+
 ```javascript
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
@@ -40,8 +42,7 @@ Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})
 ```html
 <script>
 export default {
-  name: 'App',
-  data: {
+  data () {
     return {
       startDate: new Date(),
       endDate: null
