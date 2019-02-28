@@ -12,7 +12,7 @@
 npm install xe-utils vxe-utils --save
 ```
 
-在 [unpkg](https://unpkg.com/vxe-utils/) 和 [cdnjs](https://cdn.jsdelivr.net/npm/vxe-utils/) 上获取
+Get on [unpkg](https://unpkg.com/vxe-utils/) and [cdnjs](https://cdn.jsdelivr.net/npm/vxe-utils/)
 
 ```HTML
 <script src="https://unpkg.com/xe-utils/dist/xe-utils.min.js"></script>
@@ -26,7 +26,7 @@ import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
-// mounts 可以设置['cookie', 'browse', 'locat']
+// mounts => ['cookie', 'browse', 'locat']
 Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})
 ```
 
