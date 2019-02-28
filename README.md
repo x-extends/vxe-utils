@@ -8,24 +8,15 @@
 
 ## Installing
 
-```javascript
+```shell
 npm install xe-utils vxe-utils --save
 ```
 
-Using requirejs
+在 [unpkg](https://unpkg.com/vxe-utils/) 和 [cdnjs](https://cdn.jsdelivr.net/npm/vxe-utils/) 上获取
 
-```javascript
-// require 配置
-require.config({
-  paths: {
-    // ...,
-    'xe-utils': './dist/xe-utils.min',
-    'vxe-utils': './dist/vxe-utils.min'
-  }
-})
-define(['vue', 'xe-utils', 'vxe-utils'], function (Vue, XEUtils, VXEUtils) {
-  Vue.use(VXEUtils, XEUtils)
-})
+```HTML
+<script src="https://unpkg.com/xe-utils/dist/xe-utils.min.js"></script>
+<script src="https://unpkg.com/vxe-utils/dist/vxe-utils.min.js"></script>
 ```
 
 ## Example
