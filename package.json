@@ -1,8 +1,10 @@
 {
   "name": "vxe-utils",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "A small wrapper for integrating xe-utils to Vuejs.",
   "main": "index.js",
+  "unpkg": "dist/vxe-utils.js",
+  "jsdelivr": "dist/vxe-utils.js",
   "typings": "types/index.d.ts",
   "scripts": {
     "lint": "eslint dist/vxe-utils.js index.js",
@@ -15,7 +17,7 @@
   ],
   "dependencies": {
     "vue": "^2.5.22",
-    "xe-ajax": "^3.5.3"
+    "xe-utils": "^1.8.9"
   },
   "devDependencies": {
     "eslint": "^5.15.1",

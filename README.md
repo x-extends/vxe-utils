@@ -28,12 +28,13 @@ import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
-// mounts => ['cookie', 'browse', 'locat']
+// mounts: ['cookie', 'browse', 'locat']
 Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})
 ```
 
 ```html
 <template>
+  <h1>{{ userName }}</h1>
   <div>{{ $utils.toDateString(startDate, 'yyyy-dd-MM HH:mm:ss') }}</div>
   <div>{{ endDate }}</div>
 </template>
@@ -44,11 +45,13 @@ Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})
 export default {
   data () {
     return {
+      userName: null,
       startDate: new Date(),
       endDate: null
     }
   },
   created () {
+    this.userName = this.$cookie('U_NAME')
     this.endDate = this.$utils.toDateString(new Date(), 'MM/dd/yyyy HH:mm:ss.SSS')
   }
 }
