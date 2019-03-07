@@ -15,8 +15,9 @@ npm install xe-utils vxe-utils --save
 Get on [unpkg](https://unpkg.com/vxe-utils/) and [cdnjs](https://cdn.jsdelivr.net/npm/vxe-utils/)
 
 ```HTML
-<script src="https://unpkg.com/xe-utils/dist/xe-utils.min.js"></script>
-<script src="https://unpkg.com/vxe-utils/dist/vxe-utils.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/xe-utils"></script>
+<script src="https://cdn.jsdelivr.net/npm/vxe-utils"></script>
 ```
 
 ## Example
