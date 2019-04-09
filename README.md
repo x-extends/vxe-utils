@@ -29,8 +29,13 @@ import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
-// mounts: ['cookie', 'browse', 'locat']
-Vue.use(VXEUtils, XEUtils, {mounts: ['cookie']})
+// options:
+// Vue.use(VXEUtils, XEUtils, { mounts: ['cookie', 'browse', 'locat'] })
+// this.$cookie()
+// this.$browse()
+// this.$locat()
+
+Vue.use(VXEUtils, XEUtils)
 ```
 
 ```html
