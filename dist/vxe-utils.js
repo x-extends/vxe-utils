@@ -1,36 +1,49 @@
-/**
- * vxe-utils.js v1.4.8
- * (c) 2017-2018 Xu Liangzhan
- * ISC License.
- * @preserve
- */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory()
-    : typeof define === 'function' && define.amd ? define(factory)
-      : (global.VXEUtils = factory())
-}(this, function () {
-  'use strict'
+  if (typeof define === "function" && define.amd) {
+    define("vxe-utils", ["exports"], factory);
+  } else if (typeof exports !== "undefined") {
+    factory(exports);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports);
+    global.VXEUtils = mod.exports.default;
+  }
+})(this, function (_exports) {
+  "use strict";
 
-  function VXEUtils (Vue, XEUtils, options) {
-    var mounts = options && options.mounts && options.mounts.length ? options.mounts.join(';') : []
-    var definePro = function (name, getFn) {
-      Object.defineProperty(Vue.prototype, '$' + name, { get: getFn })
-    }
-    var setMount = function (name, callback) {
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports["default"] = void 0;
+
+  function VXEUtils(Vue, XEUtils, options) {
+    var mounts = options && options.mounts && options.mounts.length ? options.mounts.join(';') : [];
+
+    var definePro = function definePro(name, getFn) {
+      Object.defineProperty(Vue.prototype, '$' + name, {
+        get: getFn
+      });
+    };
+
+    var setMount = function setMount(name, callback) {
       if (mounts.indexOf(name) > -1) {
-        definePro(name, callback || XEUtils[name])
+        definePro(name, callback || XEUtils[name]);
       }
-    }
+    };
+
     definePro('utils', function () {
-      XEUtils.$context = this
-      return XEUtils
-    })
+      XEUtils.$context = this;
+      return XEUtils;
+    });
     setMount('cookie', function () {
-      return XEUtils.cookie
-    })
-    setMount('browse')
-    setMount('locat')
+      return XEUtils.cookie;
+    });
+    setMount('browse');
+    setMount('locat');
   }
 
-  return VXEUtils
-}))
+  var _default = VXEUtils;
+  _exports["default"] = _default;
+});

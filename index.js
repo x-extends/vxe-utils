@@ -19,4 +19,4 @@ function VXEUtils (Vue, XEUtils, options) {
   setMount('locat')
 }
 
-module.exports = VXEUtils
+export default VXEUtils

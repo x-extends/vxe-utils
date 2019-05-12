@@ -1,25 +1,30 @@
 {
   "name": "vxe-utils",
-  "version": "1.4.8",
+  "version": "1.5.0",
   "description": "A small wrapper for integrating xe-utils to Vuejs.",
-  "main": "index.js",
-  "unpkg": "dist/vxe-utils.js",
-  "jsdelivr": "dist/vxe-utils.js",
-  "typings": "types/index.d.ts",
+  "main": "dist/index.common.js",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
+  "typings": "index.d.ts",
   "scripts": {
-    "lint": "eslint dist/vxe-utils.js index.js",
+    "lib": "gulp build",
+    "lint": "eslint index.js",
     "test": "npm run lint"
   },
   "files": [
-    "src",
-    "types",
-    "dist"
+    "dist",
+    "index.d.ts",
+    "index.js"
   ],
   "dependencies": {
     "vue": "^2.5.22",
     "xe-utils": "^1.8.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/runtime": "^7.4.4",
     "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
@@ -27,6 +32,15 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
     "markdown-doctest": "^0.9.1"
   },
   "repository": {
