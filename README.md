@@ -4,7 +4,7 @@
 [![npm build](https://travis-ci.org/xuliangzhan/vxe-utils.svg?branch=master)](https://travis-ci.org/xuliangzhan/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
 [![gzip size: JS](http://img.badgesize.io/https://unpkg.com/vxe-utils/dist/vxe-utils.min.js?compression=gzip&label=gzip%20size:%20JS)](http://img.badgesize.io/https://unpkg.com/vxe-utils/lib/index.umd.min.js?compression=gzip&label=gzip%20size:%20JS)
-[![npm license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/xuliangzhan/vxe-utils/blob/master/LICENSE)
+[![npm license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/xuliangzhan/vxe-utils/blob/master/LICENSE)
 
 ## Installing
 
