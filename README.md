@@ -3,13 +3,13 @@
 [![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.org/package/vxe-utils)
 [![npm build](https://travis-ci.org/xuliangzhan/vxe-utils.svg?branch=master)](https://travis-ci.org/xuliangzhan/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
-[![gzip size: JS](http://img.badgesize.io/https://unpkg.com/vxe-utils/dist/vxe-utils.min.js?compression=gzip&label=gzip%20size:%20JS)](http://img.badgesize.io/https://unpkg.com/vxe-utils/lib/index.umd.min.js?compression=gzip&label=gzip%20size:%20JS)
+[![gzip size: JS](http://img.badgesize.io/https://unpkg.com/vxe-utils/dist/vxe-utils.min.js?compression=gzip&label=gzip%20size:%20JS)](https://unpkg.com/vxe-utils/dist/vxe-utils.min.js)
 [![npm license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/xuliangzhan/vxe-utils/blob/master/LICENSE)
 
 ## Installing
 
 ```shell
-npm install xe-utils vxe-utils --save
+npm install xe-utils vxe-utils
 ```
 
 Get on [unpkg](https://unpkg.com/vxe-utils/) and [cdnjs](https://cdn.jsdelivr.net/npm/vxe-utils/)
