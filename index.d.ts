@@ -1,14 +1,18 @@
 import Vue from 'vue'
-import { XEUtilsMethods } from 'xe-utils'
+import XEUtils from 'xe-utils'
+
+export interface VXEUtilsPlugin {
+  install(vue: typeof Vue, xUtils: typeof XEUtils): void;
+}
 
 /**
  * A small wrapper for integrating xe-utils to Vuejs.
  */
-declare var VXEUtils;
+declare const VXEUtils: VXEUtilsPlugin;
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $utils: XEUtilsMethods;
+    $utils: typeof XEUtils;
   }
 }
 
