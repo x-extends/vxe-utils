@@ -1,6 +1,6 @@
 {
   "name": "vxe-utils",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "A small wrapper for integrating xe-utils to Vuejs.",
   "main": "dist/index.common.js",
   "unpkg": "dist/index.js",
@@ -17,8 +17,8 @@
     "*.d.ts"
   ],
   "peerDependencies": {
-    "vue": "^2.6.10",
-    "xe-utils": "^2.2.0"
+    "vue": ">=2.6.10",
+    "xe-utils": ">=2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
