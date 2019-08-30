@@ -1,7 +1,7 @@
 {
   "name": "vxe-utils",
-  "version": "1.7.1",
-  "description": "A small wrapper for integrating xe-utils to Vuejs.",
+  "version": "1.7.2",
+  "description": "用于 Vue 全局安装 xe-utils",
   "main": "dist/index.common.js",
   "unpkg": "dist/index.js",
   "jsdelivr": "dist/index.js",

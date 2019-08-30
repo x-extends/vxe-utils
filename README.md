@@ -6,6 +6,8 @@
 [![gzip size: JS](http://img.badgesize.io/https://unpkg.com/vxe-utils/dist/vxe-utils.min.js?compression=gzip&label=gzip%20size:%20JS)](https://unpkg.com/vxe-utils/dist/vxe-utils.min.js)
 [![npm license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/xuliangzhan/vxe-utils/blob/master/LICENSE)
 
+用于 Vue 全局安装 xe-utils
+
 ## Installing
 
 ```shell

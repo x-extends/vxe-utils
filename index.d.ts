@@ -6,12 +6,15 @@ export interface VXEUtilsPlugin {
 }
 
 /**
- * A small wrapper for integrating xe-utils to Vuejs.
+ * 用于 Vue 全局安装 xe-utils
  */
 declare const VXEUtils: VXEUtilsPlugin;
 
 declare module 'vue/types/vue' {
   interface Vue {
+    /**
+     * JavaScript 函数库、工具类
+     */
     $utils: typeof XEUtils;
   }
 }
