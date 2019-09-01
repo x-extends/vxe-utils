@@ -1,5 +1,6 @@
 # vxe-utils
 
+[![gitee star](https://gitee.com/xuliangzhan_admin/vxe-utils/badge/star.svg?theme=dark)](https://gitee.com/xuliangzhan_admin/vxe-utils/stargazers)
 [![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.org/package/vxe-utils)
 [![npm build](https://travis-ci.org/xuliangzhan/vxe-utils.svg?branch=master)](https://travis-ci.org/xuliangzhan/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
