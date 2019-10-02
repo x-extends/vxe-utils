@@ -14,6 +14,7 @@
   "files": [
     "dist",
     "index.js",
+    "*.ts",
     "*.d.ts"
   ],
   "peerDependencies": {
