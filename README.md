@@ -32,8 +32,12 @@ import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
-// options:
-// Vue.use(VXEUtils, XEUtils, { mounts: ['cookie', 'browse', 'locat'] })
+// Options:
+// Case1: Vue.use(VXEUtils, XEUtils)
+// Case2: Vue.use(VXEUtils, XEUtils, { mounts: ['cookie', 'browse', 'locat'] })
+
+// Use:
+// this.$utils.toDateString(Date.now(), 'yyyy-dd-MM HH:mm:ss')
 // this.$cookie()
 // this.$browse()
 // this.$locat()

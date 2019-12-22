@@ -1,6 +1,6 @@
 {
   "name": "vxe-utils",
-  "version": "1.7.2",
+  "version": "1.8.0",
   "description": "用于 Vue 全局安装 xe-utils",
   "main": "dist/index.common.js",
   "unpkg": "dist/index.js",
@@ -19,14 +19,14 @@
   ],
   "peerDependencies": {
     "vue": ">=2.6.10",
-    "xe-utils": ">=2.2.0"
+    "xe-utils": ">=1.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/runtime": "^7.4.4",
-    "eslint": "^5.15.1",
+    "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-import": "^2.16.0",
@@ -34,15 +34,15 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "markdown-doctest": "^0.9.1"
+    "markdown-doctest": "^1.0.0"
   },
   "repository": {
     "type": "git",
