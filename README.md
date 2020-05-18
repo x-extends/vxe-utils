@@ -32,15 +32,15 @@ import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
-// Options:
-// Case1: Vue.use(VXEUtils, XEUtils)
-// Case2: Vue.use(VXEUtils, XEUtils, { mounts: ['cookie', 'browse', 'locat'] })
+// Case1:
+Vue.use(VXEUtils, XEUtils)
+// Case2:
+// Vue.prototype.$utils = XEUtils
+// Vue.prototype.$cookie = XEUtils.cookie
+// Vue.prototype.$browse = XEUtils.browse()
 
 // Use:
 // this.$utils.toDateString(Date.now(), 'yyyy-dd-MM HH:mm:ss')
-// this.$cookie()
-// this.$browse()
-// this.$locat()
 
 Vue.use(VXEUtils, XEUtils)
 ```
