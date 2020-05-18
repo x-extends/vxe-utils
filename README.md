@@ -38,11 +38,6 @@ Vue.use(VXEUtils, XEUtils)
 // Vue.prototype.$utils = XEUtils
 // Vue.prototype.$cookie = XEUtils.cookie
 // Vue.prototype.$browse = XEUtils.browse()
-
-// Use:
-// this.$utils.toDateString(Date.now(), 'yyyy-dd-MM HH:mm:ss')
-
-Vue.use(VXEUtils, XEUtils)
 ```
 
 ```html
