@@ -1,10 +1,10 @@
 {
   "name": "vxe-utils",
-  "version": "1.8.0",
+  "version": "1.9.1",
   "description": "用于 Vue 全局安装 xe-utils",
-  "main": "dist/index.common.js",
-  "unpkg": "dist/index.js",
-  "jsdelivr": "dist/index.js",
+  "main": "dist/vxe-utils.common.js",
+  "unpkg": "dist/vxe-utils.js",
+  "jsdelivr": "dist/vxe-utils.js",
   "typings": "index.d.ts",
   "scripts": {
     "lib": "gulp build",
@@ -18,7 +18,6 @@
     "*.d.ts"
   ],
   "peerDependencies": {
-    "vue": ">=2.6.10",
     "xe-utils": ">=1.9.0"
   },
   "devDependencies": {

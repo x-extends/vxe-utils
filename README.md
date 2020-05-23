@@ -32,12 +32,16 @@ import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
-// Case1:
+// use:
 Vue.use(VXEUtils, XEUtils)
-// Case2:
+
+// vue2.x:
 // Vue.prototype.$utils = XEUtils
 // Vue.prototype.$cookie = XEUtils.cookie
-// Vue.prototype.$browse = XEUtils.browse()
+
+// vue3.x:
+// app.config.globalProperties.$utils = XEUtils
+// app.config.globalProperties.$cookie = XEUtils.cookie
 ```
 
 ```html
