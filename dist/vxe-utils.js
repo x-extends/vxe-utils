@@ -34,7 +34,7 @@
     };
 
     if (isV3) {
-      app.config.globalProperties[variate] = XEUtils[name];
+      app.config.globalProperties[variate] = XEUtils;
     } else {
       Object.defineProperty(app.prototype, variate, {
         get: function get() {
