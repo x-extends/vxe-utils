@@ -33,7 +33,7 @@ import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
 // use:
-Vue.use(VXEUtils, XEUtils)
+Vue.use(VXEUtils, XEUtils, { mounts: ['cookie'] })
 
 // vue2.x:
 // Vue.prototype.$utils = XEUtils
