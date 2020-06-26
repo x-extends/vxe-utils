@@ -18,7 +18,7 @@
     "*.d.ts"
   ],
   "peerDependencies": {
-    "xe-utils": ">=1.9.0"
+    "xe-utils": ">=2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
