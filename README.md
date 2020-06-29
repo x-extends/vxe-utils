@@ -1,6 +1,6 @@
 # vxe-utils
 
-[![gitee star](https://gitee.com/xuliangzhan_admin/vxe-utils/badge/star.svg?theme=dark)](https://gitee.com/xuliangzhan_admin/vxe-utils/stargazers)
+[![gitee star](https://gitee.com/x-extends/vxe-utils/badge/star.svg?theme=dark)](https://gitee.com/x-extends/vxe-utils/stargazers)
 [![npm version](https://img.shields.io/npm/v/vxe-utils.svg?style=flat-square)](https://www.npmjs.com/package/vxe-utils)
 [![npm build](https://travis-ci.com/x-extends/vxe-utils.svg?branch=master)](https://travis-ci.com/x-extends/vxe-utils)
 [![npm downloads](https://img.shields.io/npm/dm/vxe-utils.svg?style=flat-square)](http://npm-stat.com/charts.html?package=vxe-utils)
@@ -14,8 +14,6 @@
 ```shell
 npm install xe-utils vxe-utils
 ```
-
-Get on [unpkg](https://unpkg.com/vxe-utils/) and [cdnjs](https://cdn.jsdelivr.net/npm/vxe-utils/)
 
 ```HTML
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
