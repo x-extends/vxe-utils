@@ -30,16 +30,7 @@ import Vue from 'vue'
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'
 
-// use:
 Vue.use(VXEUtils, XEUtils, { mounts: ['cookie'] })
-
-// vue2.x:
-// Vue.prototype.$utils = XEUtils
-// Vue.prototype.$cookie = XEUtils.cookie
-
-// vue3.x:
-// app.config.globalProperties.$utils = XEUtils
-// app.config.globalProperties.$cookie = XEUtils.cookie
 ```
 
 ```html

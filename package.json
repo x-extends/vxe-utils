@@ -1,10 +1,10 @@
 {
   "name": "vxe-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "用于 Vue 全局安装 xe-utils",
   "main": "dist/vxe-utils.common.js",
-  "unpkg": "dist/vxe-utils.js",
-  "jsdelivr": "dist/vxe-utils.js",
+  "unpkg": "dist/vxe-utils.umd.min.js",
+  "jsdelivr": "dist/vxe-utils.umd.min.js",
   "typings": "index.d.ts",
   "scripts": {
     "lib": "gulp build",
@@ -18,7 +18,7 @@
     "*.d.ts"
   ],
   "peerDependencies": {
-    "xe-utils": ">=2.5.0"
+    "xe-utils": ">=2.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
