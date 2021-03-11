@@ -17,9 +17,6 @@
     "*.ts",
     "*.d.ts"
   ],
-  "peerDependencies": {
-    "xe-utils": ">=2.7.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
